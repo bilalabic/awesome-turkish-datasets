@@ -6,13 +6,13 @@ Turkish datasets are scattered across dataset cards, university pages, shared-ta
 
 Paid, gated and registration-gated datasets are listed alongside open ones, with their conditions stated. What is left out: releases whose Turkish portion cannot be separated from the other languages, resources that turn out to be a model, a tool or a paper rather than data, and datasets with no obtainable copy anywhere. [METHODOLOGY.md](METHODOLOGY.md) has the full rules.
 
-**298 datasets** — 227 text/NLP · 22 speech · 49 vision/multimodal
+**299 datasets** — 228 text/NLP · 22 speech · 49 vision/multimodal
 
 Last reviewed August 2026 · [searchable version](https://bilalabic.github.io/awesome-turkish-datasets/) with filters by category, task and access
 
 ## Contents
 
-- [Text, NLP & LLM](#text-nlp--llm) (227)
+- [Text, NLP & LLM](#text-nlp--llm) (228)
 - [Speech & Audio](#speech--audio) (22)
 - [Vision, OCR & Multimodal](#vision-ocr--multimodal) (49)
 
@@ -20,6 +20,8 @@ Each entry reads **name** — description, then `release date · scale · size �
 
 ## Text, NLP & LLM
 
+- **[Turkish EV Charging Intent Dataset](https://github.com/gokimedia/turkish-ev-charging-intents)** — Synthetic-editorial Turkish EV charging queries across eight balanced intents  
+  2026-08-22 · 192 rows · Intent Classification · CC BY 4.0 · Open · [Files](https://github.com/gokimedia/turkish-ev-charging-intents/tree/main/data)
 - **[Conversation Prompt Injection](https://huggingface.co/datasets/3nesdeniz/turkish-conversation-prompt-injection)** — Prompt-injection attacks in Turkish conversations  
   2026-07-10 · 750 rows · 44.1 KB · LLM Safety Classification · CC BY 4.0 · Open · [Files](https://huggingface.co/datasets/3nesdeniz/turkish-conversation-prompt-injection/tree/main)
 - **[Turkish-Python-instruction-500k](https://huggingface.co/datasets/bysismo/Turkish-Python-instruction-500k)** — Python coding instructions across 23 categories  

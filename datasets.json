@@ -1,5 +1,19 @@
 [
  {
+  "released": "2026-08-22",
+  "dataset": "Turkish EV Charging Intent Dataset",
+  "category": "Text, NLP & LLM",
+  "description": "Synthetic-editorial Turkish EV charging queries across eight balanced intents",
+  "sourceUrl": "https://github.com/gokimedia/turkish-ev-charging-intents",
+  "downloadLabel": "Files",
+  "downloadUrl": "https://github.com/gokimedia/turkish-ev-charging-intents/tree/main/data",
+  "size": "",
+  "scale": "192 rows",
+  "task": "Intent Classification",
+  "license": "CC BY 4.0",
+  "access": "Open"
+ },
+ {
   "released": "2026-07-10",
   "dataset": "Conversation Prompt Injection",
   "category": "Text, NLP & LLM",
