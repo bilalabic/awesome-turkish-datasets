@@ -649,4 +649,4 @@ The one rule is that every value must be traceable to an authoritative source: t
 
 ## License
 
-The catalog in this repository (README.md, datasets.json and METHODOLOGY.md) is licensed under [CC BY 4.0](LICENSE). The code of the searchable site (index.html) is licensed under [Apache-2.0](LICENSE-CODE). Each dataset carries its own license, listed above.
+The catalog in this repository (README.md, datasets.json and METHODOLOGY.md) is licensed under [CC BY 4.0](LICENSE). The code of the searchable site (index.html) is licensed under [Apache-2.0](LICENSES/Apache-2.0.txt). Each dataset carries its own license, listed above.
