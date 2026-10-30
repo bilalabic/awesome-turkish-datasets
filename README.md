@@ -6,13 +6,13 @@ Turkish datasets are scattered across dataset cards, university pages, shared-ta
 
 Paid, gated and registration-gated datasets are listed alongside open ones, with their conditions stated. What is left out: releases whose Turkish portion cannot be separated from the other languages, resources that turn out to be a model, a tool or a paper rather than data, and datasets with no obtainable copy anywhere. [METHODOLOGY.md](METHODOLOGY.md) has the full rules.
 
-**298 datasets** — 227 text/NLP · 22 speech · 49 vision/multimodal
+**299 datasets** — 228 text/NLP · 22 speech · 49 vision/multimodal
 
 Last reviewed August 2026 · [searchable version](https://bilalabic.github.io/awesome-turkish-datasets/) with filters by category, task and access
 
 ## Contents
 
-- [Text, NLP & LLM](#text-nlp--llm) (227)
+- [Text, NLP & LLM](#text-nlp--llm) (228)
 - [Speech & Audio](#speech--audio) (22)
 - [Vision, OCR & Multimodal](#vision-ocr--multimodal) (49)
 
@@ -236,6 +236,8 @@ Each entry reads **name** — description, then `release date · scale · size �
   2023 · 2,000 Turkish-translated sentences · Language Resource / Modeling · Application Required · [Files](https://docs.google.com/forms/d/1Vje0ZJk2p6JxT2X3m4780c8PuALsjASnCX9T0ZT4fg8/viewform)
 - **[turkish-nlp-suite/ATIS Turkish](https://github.com/turkish-nlp-suite/Atis_Turkish)** — Translated ATIS intents and entity slots  
   2022-12 · ~ 1.7 MB (GitHub repo) · Intent and Slot Classification · CC BY-SA 4.0 · Open
+- **[Turkish Offensive Language Detection Dataset](https://huggingface.co/datasets/Toygar/turkish-offensive-language-detection)** — OffensEval 2020 merged with additional offensive tweets  
+  2022-07 · 53,005 labeled tweets · 7.2 MB · Text Classification · Open · [Files](https://huggingface.co/datasets/Toygar/turkish-offensive-language-detection/tree/main)
 - **[trseg-41](https://github.com/alisafaya/mukayese)** — Turkish sentence-segmentation benchmark corpus  
   2022-02 · 40,000 sentences; 456,000 words · Sentence Segmentation · Open · [Files](https://github.com/alisafaya/mukayese/releases/download/v0.0.1/mukayese-datasets.tar.gz)
 - **[trspell-10](https://github.com/alisafaya/mukayese)** — Turkish spelling-correction word pairs  
