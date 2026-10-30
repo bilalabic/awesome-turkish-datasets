@@ -46,11 +46,11 @@ The same dataset may appear in several sources. These occurrences are consolidat
 
 ### 3. Deduplication
 
-Exact mirrors and duplicate uploads are treated as a single dataset.
+Exact mirrors and duplicate uploads are treated as a single dataset. When a dataset is published on several platforms, the entry links to the creator's own release: the project page, the paper, the repository, or the archive record the creator cites. Copies on other platforms are not listed separately.
 
 Different official versions may remain separate when they represent distinct releases.
 
-Derived datasets may be listed separately when they introduce meaningful changes such as translation, annotation, filtering, expansion, or task conversion.
+Derived datasets may be listed separately when they introduce meaningful changes such as translation, annotation, filtering, merging, augmentation, expansion, or task conversion. Their description names the datasets they are built from. A re-upload, re-split, or format conversion is not a meaningful change.
 
 ### 4. Verification
 
@@ -103,6 +103,8 @@ A dataset may be included when:
 
 Benchmark and evaluation datasets are included.
 
+There is no minimum size. A small dataset can be listed when its source states what the instances are, how they were produced, and where the files can be obtained.
+
 Datasets do not need to be freely downloadable. Gated, registration-required, application-required, and paid datasets may also be listed when their access conditions are clearly documented.
 
 ## Multilingual Datasets
@@ -131,6 +133,12 @@ Possible values include:
 
 Origin does not need to be known during the initial discovery stage and should not be inferred without evidence.
 
+## Generated and Translated Data
+
+Synthetic, template-generated, model-generated, and machine-translated datasets may be listed.
+
+When the source states how the data was produced, the description says so, for example "Synthetic", "Template-based", or "Machine-translated". Rows that were generated, augmented, or labeled automatically are not described as collected or manually annotated. When the source does not say, the entry does not guess.
+
 ## Exclusion Criteria
 
 The catalog generally excludes:
@@ -138,12 +146,28 @@ The catalog generally excludes:
 * Model repositories without a released dataset
 * Multilingual datasets whose Turkish portion cannot be identified
 * Exact mirrors or duplicate uploads
-* Small personal test files
+* Test files, demos, and samples that are not documented as a resource for others
 * Undocumented data dumps
 * Unreleased or only announced datasets
 * Resources whose dataset status or Turkish relevance cannot be verified
+* Datasets that exist mainly to promote a product, service, or website
+* Datasets that expose contact or identity details of private individuals, such as phone numbers, email addresses, or ID numbers
 
 Dataset collections and resource lists may be used as discovery sources, but they are not counted as individual datasets.
+
+## Submissions
+
+Anyone may suggest a dataset, including its author.
+
+A submitter who is the author, maintainer, employer, or funder of a dataset says so in the pull request or issue. A disclosed relationship does not count against a dataset. A relationship that was not disclosed and comes to light later can lead to the entry being held or removed.
+
+Every submission is verified the same way, whoever sends it. A page written by the dataset's author can confirm what the dataset contains, but not that others use it.
+
+Datasets published by companies, including paid ones, are listed on the same terms as any other. Signs that a dataset exists mainly to promote something include fields that route users to a product or website, and the same submission sent to many lists at once. Neither sign decides on its own.
+
+A dataset released by an individual or a company less than 30 days before it is submitted, without a paper or an institutional publisher, waits until it is 30 days old. A wait is not a rejection.
+
+Contributors do not need to update the dataset totals in the README. They are updated when a change is merged.
 
 ## Metadata
 
@@ -184,6 +208,16 @@ Examples of **Scale**:
 * 35K question-answer pairs
 
 For multilingual datasets, Turkish-specific scale should be preferred over the total multilingual dataset size whenever possible.
+
+## Licenses
+
+The license is the one stated by the dataset's own license file, dataset card, or paper, and it must cover the data rather than only the code or the documentation.
+
+A license that a platform fails to detect is not a conflict when the license file names one. The license is left unspecified when the dataset's own sources disagree, or when a derived dataset states a license that its sources do not allow.
+
+## Social Media Data
+
+Datasets of social media posts may be listed with the license stated by their publisher. The description says that the data consists of posts, for example tweets. The catalog does not certify that redistributing the posts complies with the terms of the platform they came from.
 
 ## Release Dates
 
