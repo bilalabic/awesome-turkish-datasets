@@ -645,6 +645,8 @@ Two conventions are worth knowing. A licence is recorded only when it covers the
 
 Corrections and additions are welcome — open an issue, or send a pull request if you already have the details.
 
+Authors are welcome to submit their own datasets; please say so in the submission. [METHODOLOGY.md](METHODOLOGY.md) describes what is listed and what is not. There is no need to update the totals at the top of this file.
+
 The one rule is that every value must be traceable to an authoritative source: the dataset's own page, its repository, its paper, or the archive that distributes it. An empty field is better than a plausible guess, so leaving one blank is a perfectly good contribution. When adding a dataset, please include the link you checked it against; when correcting one, say what the source states. Reports of dead links, moved datasets, and duplicate entries are as useful as new additions — several entries here were fixed or removed exactly that way.
 
 ## License
