@@ -107,7 +107,8 @@ const aboutLine = `${data.length.toLocaleString('en-US')} datasets: ${nText.toLo
 
 function renderRow(item) {
   const name = esc(item.dataset);
-  const cell = (text, cls = '') => `<td${cls ? ` class="${cls}"` : ''}>${esc(dash(text))}</td>`;
+  // data-label feeds the stacked-card layout on narrow screens
+  const cell = (text, label, cls = '') => `<td${cls ? ` class="${cls}"` : ''} data-label="${label}">${esc(dash(text))}</td>`;
   const sourceUrl = safeUrl(item.sourceUrl);
   const source = sourceUrl
     ? `<a class="source-link" href="${esc(sourceUrl)}" target="_blank" rel="noopener noreferrer" aria-label="Source of ${name} (opens in a new tab)">Source ↗</a>`
@@ -120,16 +121,16 @@ function renderRow(item) {
     : '—';
   return [
     '<tr>',
-    cell(item.released),
-    `<td><a class="dataset-name" href="./d/${item.slug}/">${name}</a>${source}</td>`,
-    `<td><span class="pill category-pill">${esc(dash(item.category))}</span></td>`,
-    cell(item.description, 'description'),
-    cell(item.size),
-    cell(item.scale, 'scale'),
-    cell(item.task, 'task'),
-    cell(item.license, 'license'),
-    `<td><span class="${`pill ${accessClass(access)}`.trim()}">${esc(access)}</span></td>`,
-    `<td>${download}</td>`,
+    cell(item.released, 'Released'),
+    `<td data-label="Dataset"><a class="dataset-name" href="./d/${item.slug}/">${name}</a>${source}</td>`,
+    `<td data-label="Category"><span class="pill category-pill">${esc(dash(item.category))}</span></td>`,
+    cell(item.description, 'Description', 'description'),
+    cell(item.size, 'Size'),
+    cell(item.scale, 'Scale', 'scale'),
+    cell(item.task, 'Task', 'task'),
+    cell(item.license, 'License', 'license'),
+    `<td data-label="Access"><span class="${`pill ${accessClass(access)}`.trim()}">${esc(access)}</span></td>`,
+    `<td data-label="Download">${download}</td>`,
     '</tr>'
   ].join('');
 }
@@ -151,8 +152,11 @@ let index = html;
 index = swap(index, '<main class="page" id="app" hidden>', '<main class="page" id="app">');
 index = swap(index, '<tbody id="datasetBody"></tbody>',
   `<tbody id="datasetBody">\n${[...data].sort(newestFirst).map(renderRow).join('\n')}\n</tbody>`);
-index = swap(index, '<span id="resultCount">Loading catalog…</span>',
-  `<span id="resultCount">Showing ${data.length.toLocaleString('en-US')} of ${data.length.toLocaleString('en-US')} datasets</span>`);
+// The default sort label comes from the template, so the no-JS line matches what render() prints first.
+const defaultSort = html.match(/<option value="date-desc">([^<]*)<\/option>/);
+if (!defaultSort) throw new Error('index.html: date-desc sort option not found');
+index = swap(index, '<span id="resultCount" aria-live="polite">Loading catalog…</span>',
+  `<span id="resultCount" aria-live="polite">Showing ${data.length.toLocaleString('en-US')} of ${data.length.toLocaleString('en-US')} · sorted by ${defaultSort[1]}</span>`);
 index = swap(index, '<span class="stat-value" id="totalStat">—</span>', `<span class="stat-value" id="totalStat">${data.length.toLocaleString('en-US')}</span>`);
 index = swap(index, '<span class="stat-value" id="textStat">—</span>', `<span class="stat-value" id="textStat">${nText.toLocaleString('en-US')}</span>`);
 index = swap(index, '<span class="stat-value" id="speechStat">—</span>', `<span class="stat-value" id="speechStat">${nSpeech.toLocaleString('en-US')}</span>`);

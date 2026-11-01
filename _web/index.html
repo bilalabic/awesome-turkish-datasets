@@ -205,11 +205,28 @@
     }
 
     .stat {
+      display: block;
+      width: 100%;
       padding: 14px 16px;
       border: 1px solid var(--border);
       border-radius: var(--radius);
       background: var(--surface-2);
       box-shadow: var(--shadow);
+      color: inherit;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .stat:hover {
+      border-color: var(--muted);
+      background: var(--surface);
+    }
+
+    /* selected: a second border ring and the surface fill, so it is not colour alone */
+    .stat[aria-pressed="true"] {
+      border-color: var(--muted);
+      background: var(--surface);
+      box-shadow: inset 0 0 0 1px var(--muted);
     }
 
     .stat-value {
@@ -227,7 +244,7 @@
 
     .controls {
       display: grid;
-      grid-template-columns: minmax(260px, 1.8fr) repeat(4, minmax(150px, 0.7fr)) auto;
+      grid-template-columns: minmax(260px, 1.8fr) repeat(5, minmax(130px, 0.7fr)) auto;
       gap: 10px;
       align-items: end;
       padding: 14px;
@@ -263,6 +280,11 @@
     .button:focus-visible,
     .icon-button:focus-visible,
     .sort-button:focus-visible,
+    .stat:focus-visible,
+    .chip-remove:focus-visible,
+    .link-button:focus-visible,
+    .menu summary:focus-visible,
+    .footer-links a:focus-visible,
     .table-wrap:focus-visible {
       outline: 2px solid var(--accent);
       outline-offset: 2px;
@@ -273,13 +295,128 @@
       white-space: nowrap;
     }
 
+    .filter-chips {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px 10px;
+      margin: 12px 2px 0;
+    }
+
+    .filter-chips[hidden] {
+      display: none;
+    }
+
+    .chip-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+      padding: 1px 2px 1px 10px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--surface);
+      font-size: 0.8rem;
+      overflow-wrap: anywhere;
+    }
+
+    .chip-remove {
+      flex: 0 0 auto;
+      width: 24px;
+      height: 24px;
+      padding: 0;
+      border: 0;
+      border-radius: 50%;
+      background: transparent;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .chip-remove:hover {
+      background: var(--surface-2);
+      color: var(--text);
+    }
+
     .result-line {
       display: flex;
+      align-items: center;
       justify-content: space-between;
       gap: 12px;
       margin: 14px 2px 8px;
       color: var(--muted);
       font-size: 0.86rem;
+    }
+
+    .menu {
+      position: relative;
+    }
+
+    .menu summary {
+      list-style: none;
+      min-height: 32px;
+      font-size: 0.82rem;
+    }
+
+    .menu summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .menu-panel {
+      position: absolute;
+      right: 0;
+      top: calc(100% + 4px);
+      z-index: 5;
+      display: grid;
+      min-width: 230px;
+      padding: 4px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface-2);
+      box-shadow: var(--shadow);
+    }
+
+    .menu-item {
+      display: block;
+      padding: 7px 10px;
+      border: 0;
+      border-radius: 6px;
+      background: none;
+      color: var(--text);
+      font-size: 0.86rem;
+      text-align: left;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .menu-item:hover:not(:disabled) {
+      background: var(--surface);
+    }
+
+    .menu-item:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: -2px;
+    }
+
+    .menu-item:disabled {
+      color: var(--muted);
+      cursor: default;
+    }
+
+    mark {
+      padding: 0 1px;
+      border-radius: 2px;
+      background: var(--accent-soft);
+      color: inherit;
     }
 
     .table-wrap {
@@ -464,6 +601,18 @@
       gap: 4px 16px;
     }
 
+    .footer-links a {
+      color: var(--muted);
+    }
+
+    .footer-links a:hover {
+      color: var(--text);
+    }
+
+    .empty .link-button {
+      margin-left: 6px;
+    }
+
     .link-button {
       border: 0;
       background: none;
@@ -551,11 +700,93 @@
 
       .result-line {
         flex-direction: column;
-        gap: 2px;
+        align-items: flex-start;
+        gap: 6px;
+      }
+
+      .menu-panel {
+        right: auto;
+        left: 0;
       }
 
       footer {
         flex-direction: column;
+      }
+
+      /* Each row becomes a stacked card. The header row stays in the accessibility
+         tree but is clipped out of sight; td::before shows the column name. */
+      .table-wrap {
+        border: 0;
+        background: transparent;
+        box-shadow: none;
+      }
+
+      table,
+      tbody,
+      tr,
+      td {
+        display: block;
+      }
+
+      table {
+        min-width: 0;
+      }
+
+      thead {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+      }
+
+      tbody tr {
+        margin: 0 0 10px;
+        padding: 6px 12px;
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        background: var(--surface-2);
+        box-shadow: var(--shadow);
+      }
+
+      tbody tr:nth-child(even),
+      tbody tr:hover {
+        background: var(--surface-2);
+      }
+
+      td,
+      tbody tr:last-child td {
+        padding: 6px 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      tbody tr td:last-child {
+        border-bottom: 0;
+      }
+
+      td::before {
+        content: attr(data-label);
+        display: block;
+        color: var(--muted);
+        font-size: 0.72rem;
+        font-weight: 600;
+      }
+
+      tbody td:nth-child(2),
+      .description,
+      .scale,
+      .task,
+      .license {
+        min-width: 0;
+        max-width: none;
+      }
+
+      .empty,
+      .error {
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
       }
     }
 
@@ -596,22 +827,18 @@
       </div>
     </header>
 
-    <section class="stats" aria-label="Catalog statistics">
-      <div class="stat"><span class="stat-value" id="totalStat">—</span><span class="stat-label">Total datasets</span>
-      </div>
-      <div class="stat"><span class="stat-value" id="textStat">—</span><span class="stat-label">Text / NLP / LLM</span>
-      </div>
-      <div class="stat"><span class="stat-value" id="speechStat">—</span><span class="stat-label">Speech / Audio</span>
-      </div>
-      <div class="stat"><span class="stat-value" id="visionStat">—</span><span class="stat-label">Vision / OCR /
-          Multimodal</span></div>
+    <section class="stats" aria-label="Catalog statistics, press a card to filter by category">
+      <button class="stat" type="button" data-category="" aria-pressed="true"><span class="stat-value" id="totalStat">—</span><span class="stat-label">Total datasets</span></button>
+      <button class="stat" type="button" data-category="Text, NLP &amp; LLM" aria-pressed="false"><span class="stat-value" id="textStat">—</span><span class="stat-label">Text / NLP / LLM</span></button>
+      <button class="stat" type="button" data-category="Speech &amp; Audio" aria-pressed="false"><span class="stat-value" id="speechStat">—</span><span class="stat-label">Speech / Audio</span></button>
+      <button class="stat" type="button" data-category="Vision, OCR &amp; Multimodal" aria-pressed="false"><span class="stat-value" id="visionStat">—</span><span class="stat-label">Vision / OCR / Multimodal</span></button>
     </section>
 
     <section class="controls" aria-label="Dataset filters">
       <div class="field search-field">
         <label for="search">Search</label>
         <input class="control" id="search" type="search" autocomplete="off"
-          placeholder="Dataset name, task, license…" />
+          placeholder="Search datasets… (/ to focus, Esc to clear)" aria-keyshortcuts="/" />
       </div>
       <div class="field">
         <label for="categoryFilter">Category</label>
@@ -631,6 +858,12 @@
           <option value="">All tasks</option>
         </select>
       </div>
+      <div class="field">
+        <label for="licenseFilter">License</label>
+        <select class="control" id="licenseFilter">
+          <option value="">All licenses</option>
+        </select>
+      </div>
       <div class="field sort-field">
         <label for="sortSelect">Sort</label>
         <select class="control" id="sortSelect">
@@ -638,14 +871,28 @@
           <option value="date-asc">Oldest first</option>
           <option value="name-asc">Name A → Z</option>
           <option value="name-desc">Name Z → A</option>
+          <option value="size-desc">Largest first</option>
+          <option value="size-asc">Smallest first</option>
         </select>
       </div>
       <button class="button reset-button" id="resetFilters" type="button">Reset</button>
     </section>
 
-    <div class="result-line" aria-live="polite">
-      <span id="resultCount">Loading catalog…</span>
-      <span id="activeHint">All datasets</span>
+    <div class="filter-chips" id="filterChips" hidden>
+      <ul class="chip-list" id="chipList" aria-label="Active filters"></ul>
+      <button type="button" class="link-button" id="clearAll">Clear all</button>
+    </div>
+
+    <div class="result-line">
+      <span id="resultCount" aria-live="polite">Loading catalog…</span>
+      <details class="menu" id="downloadMenu">
+        <summary class="button">Download view <span aria-hidden="true">▾</span></summary>
+        <div class="menu-panel">
+          <button type="button" class="menu-item" id="downloadViewCsv" disabled>Current view as CSV</button>
+          <button type="button" class="menu-item" id="downloadViewJson" disabled>Current view as JSON</button>
+          <a class="menu-item" href="./datasets.json" download>Full catalog as JSON</a>
+        </div>
+      </details>
     </div>
 
     <section class="table-wrap" role="region" tabindex="0" aria-label="Dataset catalog">
@@ -669,17 +916,17 @@
         </thead>
         <tbody id="datasetBody"></tbody>
       </table>
-      <div class="empty" id="emptyState" hidden>No datasets match these filters.</div>
+      <div class="empty" id="emptyState" hidden>No datasets match these filters. <button type="button" class="link-button" id="emptyClear">Clear filters</button></div>
       <div class="error" id="errorState" hidden></div>
     </section>
 
     <footer>
       <span>Every entry is checked against the dataset's own source before it is listed.</span>
       <span class="footer-links">
-        <a href="./datasets.json" download>Download JSON</a>
-        <button type="button" class="link-button" id="downloadCsv" disabled>Download CSV</button>
-        <a href="https://github.com/bilalabic/awesome-turkish-datasets/blob/main/METHODOLOGY.md" target="_blank"
-          rel="noopener noreferrer">Methodology ↗</a>
+        <a href="https://github.com/bilalabic/awesome-turkish-datasets/issues/new?template=suggest-dataset.yml" target="_blank" rel="noopener noreferrer">Suggest a dataset ↗</a>
+        <a href="https://github.com/bilalabic/awesome-turkish-datasets/issues/new?template=report-problem.yml" target="_blank" rel="noopener noreferrer">Report a problem ↗</a>
+        <a href="https://github.com/bilalabic/awesome-turkish-datasets/blob/main/METHODOLOGY.md" target="_blank" rel="noopener noreferrer">Methodology ↗</a>
+        <a href="./llms.txt">llms.txt</a>
       </span>
     </footer>
   </main>
@@ -734,8 +981,14 @@
         category: '',
         access: '',
         task: '',
+        license: '',
         sort: 'date-desc'
       };
+
+      const NOT_STATED = 'Not stated';
+      const FILTER_KEYS = ['category', 'access', 'task', 'license'];
+      // the rows currently shown, in order, for Download view
+      let currentRows = [];
 
       const els = {
         app: document.getElementById('app'),
@@ -746,10 +999,18 @@
         category: document.getElementById('categoryFilter'),
         access: document.getElementById('accessFilter'),
         task: document.getElementById('taskFilter'),
+        license: document.getElementById('licenseFilter'),
         sort: document.getElementById('sortSelect'),
         reset: document.getElementById('resetFilters'),
         resultCount: document.getElementById('resultCount'),
-        activeHint: document.getElementById('activeHint'),
+        chips: document.getElementById('filterChips'),
+        chipList: document.getElementById('chipList'),
+        clearAll: document.getElementById('clearAll'),
+        emptyClear: document.getElementById('emptyClear'),
+        menu: document.getElementById('downloadMenu'),
+        viewCsv: document.getElementById('downloadViewCsv'),
+        viewJson: document.getElementById('downloadViewJson'),
+        statButtons: document.querySelectorAll('.stat[data-category]'),
         totalStat: document.getElementById('totalStat'),
         textStat: document.getElementById('textStat'),
         speechStat: document.getElementById('speechStat'),
@@ -790,6 +1051,61 @@
           .replace(/ı/g, 'i');
       }
 
+      // "12.4 MB", "~561 KB (GitHub repo)", "1,200 MB" -> bytes (decimal units); null when no size is given
+      const SIZE_UNITS = { B: 1, KB: 1e3, MB: 1e6, GB: 1e9, TB: 1e12 };
+      function parseSize(value) {
+        const match = String(value || '').match(/(\d[\d,]*(?:\.\d+)?)\s*(TB|GB|MB|KB|B)\b/i);
+        if (!match) return null;
+        const bytes = Number(match[1].replace(/,/g, '')) * SIZE_UNITS[match[2].toUpperCase()];
+        return Number.isFinite(bytes) ? bytes : null;
+      }
+
+      function hostOf(value) {
+        try {
+          return new URL(value).hostname.replace(/^www\./, '');
+        } catch {
+          return '';
+        }
+      }
+
+      // Character ranges of `text` that match the normalized `query`. Each character is
+      // normalized on its own so positions map back to the original string.
+      function matchRanges(text, query) {
+        if (!query) return [];
+        let normalized = '';
+        const origin = [];
+        let index = 0;
+        for (const char of text) {
+          const piece = normalizeSearchText(char);
+          for (let i = 0; i < piece.length; i += 1) origin.push(index);
+          normalized += piece;
+          index += char.length;
+        }
+        const ranges = [];
+        let from = normalized.indexOf(query);
+        while (from !== -1) {
+          const last = origin[from + query.length - 1];
+          const lastChar = String.fromCodePoint(text.codePointAt(last));
+          ranges.push([origin[from], last + lastChar.length]);
+          from = normalized.indexOf(query, from + query.length);
+        }
+        return ranges;
+      }
+
+      // Text nodes and <mark> elements only; page content never goes through innerHTML.
+      function appendHighlighted(parent, text, query) {
+        let position = 0;
+        for (const [start, end] of matchRanges(text, query)) {
+          if (start < position) continue;
+          if (start > position) parent.appendChild(document.createTextNode(text.slice(position, start)));
+          const mark = document.createElement('mark');
+          mark.textContent = text.slice(start, end);
+          parent.appendChild(mark);
+          position = end;
+        }
+        if (position < text.length) parent.appendChild(document.createTextNode(text.slice(position)));
+      }
+
       function safeUrl(value) {
         if (!value || value === '—') return '';
         try {
@@ -800,13 +1116,14 @@
         }
       }
 
-      function makeCell(text, className = '') {
+      function makeCell(text, label, className = '', query = '') {
         const td = document.createElement('td');
         if (className) td.className = className;
-        td.textContent = text || '—';
+        td.dataset.label = label;
+        if (query) appendHighlighted(td, text || '—', query);
+        else td.textContent = text || '—';
         return td;
       }
-
       function makePill(text, extraClass = '') {
         const span = document.createElement('span');
         span.className = `pill ${extraClass}`.trim();
@@ -824,15 +1141,16 @@
         return '';
       }
 
-      function renderRow(item) {
+      function renderRow(item, query) {
         const tr = document.createElement('tr');
-        tr.appendChild(makeCell(item.released));
+        tr.appendChild(makeCell(item.released, 'Released'));
 
         const datasetCell = document.createElement('td');
+        datasetCell.dataset.label = 'Dataset';
         const name = document.createElement('a');
         name.className = 'dataset-name';
         name.href = `./d/${item.slug}/`;
-        name.textContent = item.dataset;
+        appendHighlighted(name, item.dataset, query);
         datasetCell.appendChild(name);
         const sourceUrl = safeUrl(item.sourceUrl);
         if (sourceUrl) {
@@ -848,20 +1166,23 @@
         tr.appendChild(datasetCell);
 
         const categoryCell = document.createElement('td');
+        categoryCell.dataset.label = 'Category';
         categoryCell.appendChild(makePill(item.category, 'category-pill'));
         tr.appendChild(categoryCell);
 
-        tr.appendChild(makeCell(item.description, 'description'));
-        tr.appendChild(makeCell(item.size));
-        tr.appendChild(makeCell(item.scale, 'scale'));
-        tr.appendChild(makeCell(item.task, 'task'));
-        tr.appendChild(makeCell(item.license, 'license'));
+        tr.appendChild(makeCell(item.description, 'Description', 'description', query));
+        tr.appendChild(makeCell(item.size, 'Size'));
+        tr.appendChild(makeCell(item.scale, 'Scale', 'scale'));
+        tr.appendChild(makeCell(item.task, 'Task', 'task'));
+        tr.appendChild(makeCell(item.license, 'License', 'license'));
 
         const accessCell = document.createElement('td');
+        accessCell.dataset.label = 'Access';
         accessCell.appendChild(makePill(item.access, accessClass(item.access)));
         tr.appendChild(accessCell);
 
         const downloadCell = document.createElement('td');
+        downloadCell.dataset.label = 'Download';
         const downloadUrl = safeUrl(item.downloadUrl);
         if (downloadUrl) {
           const a = document.createElement('a');
@@ -880,6 +1201,15 @@
         return tr;
       }
 
+      // Unknown sizes go last in both directions.
+      function bySize(direction) {
+        return (a, b) => {
+          if ((a.bytes === null) !== (b.bytes === null)) return a.bytes === null ? 1 : -1;
+          const diff = a.bytes === null ? 0 : (a.bytes - b.bytes) * direction;
+          return diff || a.dataset.localeCompare(b.dataset, 'tr');
+        };
+      }
+
       function filterAndSort() {
         const query = normalizeSearchText(state.search.trim());
 
@@ -887,18 +1217,8 @@
           if (state.category && item.category !== state.category) return false;
           if (state.access && item.access !== state.access) return false;
           if (state.task && !item.task.split(';').map(v => v.trim()).includes(state.task)) return false;
-
-          if (!query) return true;
-          const haystack = [
-            item.dataset,
-            item.description,
-            item.task,
-            item.license,
-            item.access,
-            item.category,
-            item.released
-          ].join(' ');
-          return normalizeSearchText(haystack).includes(query);
+          if (state.license && item.licenseKey !== state.license) return false;
+          return !query || item.haystack.includes(query);
         });
 
         filtered.sort((a, b) => {
@@ -911,37 +1231,78 @@
           }
           if (state.sort === 'name-asc') return a.dataset.localeCompare(b.dataset, 'tr', { sensitivity: 'base' });
           if (state.sort === 'name-desc') return b.dataset.localeCompare(a.dataset, 'tr', { sensitivity: 'base' });
+          if (state.sort === 'size-desc') return bySize(-1)(a, b);
+          if (state.sort === 'size-asc') return bySize(1)(a, b);
           return normalizeDate(b.released) - normalizeDate(a.released) || a.dataset.localeCompare(b.dataset, 'tr');
         });
 
         return filtered;
       }
 
+      const FILTER_LABELS = { category: 'Category', access: 'Access', task: 'Task', license: 'License', search: 'Search' };
+
+      function activeFilters() {
+        const filters = FILTER_KEYS.filter(key => state[key]).map(key => ({ key, text: `${FILTER_LABELS[key]}: ${state[key]}` }));
+        if (state.search.trim()) filters.push({ key: 'search', text: `${FILTER_LABELS.search}: “${state.search.trim()}”` });
+        return filters;
+      }
+
+      function renderChips(filters) {
+        els.chips.hidden = filters.length === 0;
+        els.chipList.replaceChildren(...filters.map(({ key, text }) => {
+          const li = document.createElement('li');
+          li.className = 'chip';
+          li.appendChild(document.createTextNode(text));
+          const remove = document.createElement('button');
+          remove.type = 'button';
+          remove.className = 'chip-remove';
+          remove.dataset.filter = key;
+          remove.setAttribute('aria-label', `Remove filter ${text}`);
+          remove.textContent = '×';
+          li.appendChild(remove);
+          return li;
+        }));
+      }
+
       function render() {
         const rows = filterAndSort();
+        currentRows = rows;
+        const query = normalizeSearchText(state.search.trim());
         const fragment = document.createDocumentFragment();
-        rows.forEach(item => fragment.appendChild(renderRow(item)));
+        rows.forEach(item => fragment.appendChild(renderRow(item, query)));
         els.body.replaceChildren(fragment);
 
         els.empty.hidden = rows.length !== 0;
-        els.resultCount.textContent = `Showing ${rows.length.toLocaleString()} of ${state.datasets.length.toLocaleString()} datasets`;
+        const sortLabel = [...els.sort.options].find(option => option.value === state.sort).textContent;
+        els.resultCount.textContent = `Showing ${rows.length.toLocaleString()} of ${state.datasets.length.toLocaleString()} · sorted by ${sortLabel}`;
+        els.viewCsv.disabled = els.viewJson.disabled = rows.length === 0;
 
-        const filters = [];
-        if (state.category) filters.push(state.category);
-        if (state.access) filters.push(state.access);
-        if (state.task) filters.push(state.task);
-        if (state.search.trim()) filters.push(`“${state.search.trim()}”`);
-        els.activeHint.textContent = filters.length ? filters.join(' · ') : 'All datasets';
+        // the form controls always mirror state; the search box is written only when state changes it
+        FILTER_KEYS.forEach(key => { els[key].value = state[key]; });
+        els.sort.value = state.sort;
+        els.statButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.category === state.category)));
+        renderChips(activeFilters());
 
         updateSortIndicators();
       }
 
-      function addOptions(select, values) {
+      // Every state change goes through here, which keeps it ready for URL state later.
+      function applyState(patch) {
+        Object.assign(state, patch);
+        if ('search' in patch) {
+          clearTimeout(searchTimer);
+          els.search.value = state.search;
+        }
+        render();
+      }
+
+      const NO_FILTERS = { search: '', category: '', access: '', task: '', license: '' };
+      function addOptions(select, values, labelOf = value => value) {
         const fragment = document.createDocumentFragment();
         values.forEach(value => {
           const option = document.createElement('option');
           option.value = value;
-          option.textContent = value;
+          option.textContent = labelOf(value);
           fragment.appendChild(option);
         });
         select.appendChild(fragment);
@@ -959,6 +1320,14 @@
         addOptions(els.category, categories);
         addOptions(els.access, accessTypes);
         addOptions(els.task, tasks);
+
+        // most common licences first; entries with none go last as "Not stated"
+        const licenseCounts = new Map();
+        state.datasets.forEach(d => licenseCounts.set(d.licenseKey, (licenseCounts.get(d.licenseKey) || 0) + 1));
+        const licenses = [...licenseCounts.keys()].filter(value => value !== NOT_STATED)
+          .sort((a, b) => licenseCounts.get(b) - licenseCounts.get(a) || a.localeCompare(b, 'en'));
+        if (licenseCounts.has(NOT_STATED)) licenses.push(NOT_STATED);
+        addOptions(els.license, licenses, value => `${value} (${licenseCounts.get(value)})`);
       }
 
       function updateStats() {
@@ -971,15 +1340,21 @@
       }
 
       function updateSortIndicators() {
+        const [key, direction] = state.sort.split('-');
         els.dateSortIndicator.textContent = state.sort === 'date-asc' ? '↑' : state.sort === 'date-desc' ? '↓' : '↕';
         els.nameSortIndicator.textContent = state.sort === 'name-asc' ? '↑' : state.sort === 'name-desc' ? '↓' : '↕';
 
-        // aria-sort belongs only on the header that is currently sorted
-        const [activeTh, otherTh] = state.sort.startsWith('date') ? [els.dateTh, els.nameTh] : [els.nameTh, els.dateTh];
-        activeTh.setAttribute('aria-sort', state.sort.endsWith('asc') ? 'ascending' : 'descending');
-        otherTh.removeAttribute('aria-sort');
+        // aria-sort belongs only on the header that is currently sorted; size has no header button
+        const headers = { date: els.dateTh, name: els.nameTh };
+        Object.entries(headers).forEach(([name, th]) => {
+          if (name === key) th.setAttribute('aria-sort', direction === 'asc' ? 'ascending' : 'descending');
+          else th.removeAttribute('aria-sort');
+        });
       }
 
+      function closeMenu() {
+        els.menu.open = false;
+      }
       function bindEvents() {
         els.search.addEventListener('input', event => {
           const value = event.target.value;
@@ -989,38 +1364,66 @@
             render();
           }, SEARCH_DEBOUNCE_MS);
         });
-        els.category.addEventListener('change', event => {
-          state.category = event.target.value;
-          render();
+        els.search.addEventListener('keydown', event => {
+          if (event.key === 'Escape' && els.search.value) {
+            event.preventDefault();
+            applyState({ search: '' });
+          }
         });
-        els.access.addEventListener('change', event => {
-          state.access = event.target.value;
-          render();
+        document.addEventListener('keydown', event => {
+          if (event.key === '/' && !event.ctrlKey && !event.metaKey && !event.altKey) {
+            const active = document.activeElement;
+            if (active && (active.matches('input, textarea, select') || active.isContentEditable)) return;
+            event.preventDefault();
+            els.search.focus();
+          } else if (event.key === 'Escape' && els.menu.open) {
+            closeMenu();
+            els.menu.querySelector('summary').focus();
+          }
         });
-        els.task.addEventListener('change', event => {
-          state.task = event.target.value;
-          render();
+        document.addEventListener('click', event => {
+          if (els.menu.open && !els.menu.contains(event.target)) closeMenu();
         });
-        els.sort.addEventListener('change', event => {
-          state.sort = event.target.value;
-          render();
+
+        FILTER_KEYS.forEach(key => {
+          els[key].addEventListener('change', event => applyState({ [key]: event.target.value }));
         });
+        els.sort.addEventListener('change', event => applyState({ sort: event.target.value }));
+
+        els.statButtons.forEach(button => {
+          button.addEventListener('click', () => {
+            const category = button.dataset.category;
+            // pressing the selected category again clears it
+            applyState({ category: state.category === category ? '' : category });
+          });
+        });
+
+        els.chipList.addEventListener('click', event => {
+          const button = event.target.closest('.chip-remove');
+          if (!button) return;
+          const key = button.dataset.filter;
+          applyState({ [key]: '' });
+          // the pressed button is gone; keep keyboard focus somewhere useful
+          const next = els.chipList.querySelector('.chip-remove');
+          (next || (key === 'search' ? els.search : els[key])).focus();
+        });
+        [els.clearAll, els.emptyClear].forEach(button => button.addEventListener('click', () => {
+          applyState(NO_FILTERS);
+          els.search.focus();
+        }));
         els.reset.addEventListener('click', () => {
-          clearTimeout(searchTimer);
-          state.search = '';
-          state.category = '';
-          state.access = '';
-          state.task = '';
-          state.sort = 'date-desc';
-          els.search.value = '';
-          els.category.value = '';
-          els.access.value = '';
-          els.task.value = '';
-          els.sort.value = 'date-desc';
-          render();
+          applyState({ ...NO_FILTERS, sort: 'date-desc' });
           els.search.focus();
         });
 
+        els.viewCsv.addEventListener('click', () => {
+          downloadFile('datasets-view.csv', buildCsv(currentRows.map(item => item.raw)), 'text/csv;charset=utf-8');
+          closeMenu();
+        });
+        els.viewJson.addEventListener('click', () => {
+          downloadFile('datasets-view.json', JSON.stringify(currentRows.map(item => item.raw), null, 1) + '\n', 'application/json;charset=utf-8');
+          closeMenu();
+        });
         document.querySelectorAll('[data-sort]').forEach(button => {
           button.addEventListener('click', () => {
             const type = button.dataset.sort;
@@ -1029,8 +1432,7 @@
             } else {
               state.sort = state.sort === 'name-asc' ? 'name-desc' : 'name-asc';
             }
-            els.sort.value = state.sort;
-            render();
+            applyState({ sort: state.sort });
           });
         });
 
@@ -1076,17 +1478,16 @@
         return rows.map(row => row.map(csvField).join(',')).join('\r\n') + '\r\n';
       }
 
-      function downloadCsv(entries) {
-        const url = URL.createObjectURL(new Blob([buildCsv(entries)], { type: 'text/csv;charset=utf-8' }));
+      function downloadFile(name, text, type) {
+        const url = URL.createObjectURL(new Blob([text], { type }));
         const link = document.createElement('a');
         link.href = url;
-        link.download = 'datasets.csv';
+        link.download = name;
         document.body.appendChild(link);
         link.click();
         link.remove();
         URL.revokeObjectURL(url);
       }
-
       async function init() {
         restoreTheme();
         els.app.hidden = false;
@@ -1111,16 +1512,23 @@
             scale: dash(entry.scale),
             task: dash(entry.task),
             license: dash(entry.license),
-            access: dash(entry.access)
+            access: dash(entry.access),
+            licenseKey: dash(entry.license) === '—' ? NOT_STATED : dash(entry.license),
+            bytes: parseSize(entry.size),
+            raw: entry
           }));
+          // one normalized string per entry, built once, so each keystroke is a plain substring test
+          state.datasets.forEach(item => {
+            item.haystack = normalizeSearchText([
+              item.dataset, item.description, item.task, item.license, item.access, item.category,
+              item.released, item.scale, item.size, hostOf(item.sourceUrl)
+            ].join(' '));
+          });
 
           if (!state.datasets.length) {
             throw new Error('The catalog file contained no entries.');
           }
 
-          const csvButton = document.getElementById('downloadCsv');
-          csvButton.addEventListener('click', () => downloadCsv(entries));
-          csvButton.disabled = false;
 
           populateFilters();
           updateStats();
