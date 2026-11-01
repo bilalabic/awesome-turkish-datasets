@@ -1,3 +1,4 @@
+<!-- Generated from datasets.json by scripts/build.mjs. Edit datasets.json (and scripts/readme.tmpl.md for prose), then run: node scripts/build.mjs -->
 # Awesome Turkish Datasets
 
 A curated catalog of datasets for Turkish across language, speech, vision, and multimodal AI.
@@ -85,7 +86,7 @@ Each entry reads **name** — description, then `release date · scale · size �
 - **[RAGTruth-TR](https://huggingface.co/datasets/newmindai/RAGTruth-TR)** — Translated RAGTruth hallucination-detection benchmark  
   2025-06-18 · 17,790 rows · 17.1 MB · Benchmarking · MIT · Open · [Files](https://huggingface.co/datasets/newmindai/RAGTruth-TR/tree/main)
 - **[TurBLiMP](https://github.com/ezgibasar/TurBLiMP)** — Minimal pairs for Turkish grammatical phenomena  
-  2025-06-16 · 16,000 minimal pairs · ~ 1.1 MB (GitHub repo) · Benchmarking · CC BY 4.0 · Open · [Files](https://github.com/ezgibasar/TurBLiMP/tree/main/data)
+  2025-06-16 · 16,000 minimal pairs · ~1.1 MB (GitHub repo) · Benchmarking · CC BY 4.0 · Open · [Files](https://github.com/ezgibasar/TurBLiMP/tree/main/data)
 - **[turkish-math-186k](https://huggingface.co/datasets/ituperceptron/turkish-math-186k)** — Machine-translated NuminaMath math problems  
   2025-05 · 185,937 Turkish rows · 130.2 MB · Instruction Tuning · Open · [Files](https://huggingface.co/datasets/ituperceptron/turkish-math-186k/tree/main)
 - **[THY-SA](https://huggingface.co/datasets/trmteb/thy_sa)** — Turkish Airlines tweets with sentiment labels  
@@ -131,7 +132,7 @@ Each entry reads **name** — description, then `release date · scale · size �
 - **[AkademikDerlem](https://huggingface.co/datasets/turkish-nlp-suite/AkademikDerlem)** — Academic publication text corpus  
   2024-10 · 668,109 Turkish rows · 4.0 GB · Language Modeling · CC BY-SA 4.0 · Open · [Files](https://huggingface.co/datasets/turkish-nlp-suite/AkademikDerlem/tree/main)
 - **[HPLT2.0](https://hplt-project.org/datasets/v2.0)** — Web-crawled multilingual text corpus  
-  2024-10 · 116.57M Turkish documents; 51.67B Turkish words · 426 GB (Turkish subset) · Language Modeling · CC0 · Open
+  2024-10 · 116.57M Turkish documents; 51.67B Turkish words · 426 GB (Turkish subset) · Language Modeling · CC0 1.0 · Open
 - **[temiz-OSCAR](https://huggingface.co/datasets/turkish-nlp-suite/temiz-OSCAR)** — Cleaned versions of OSCAR corpora  
   2024-10 · 23,739,767 Turkish rows · 60.4 GB · Language Modeling · CC BY-SA 4.0 · Open · [Files](https://huggingface.co/datasets/turkish-nlp-suite/temiz-OSCAR/tree/main)
 - **[turkish_exam_instructions](https://huggingface.co/datasets/bezir/turkish_exam_instructions)** — Exam questions from TR-MMLU with Gemini-generated answers  
@@ -275,7 +276,7 @@ Each entry reads **name** — description, then `release date · scale · size �
 - **[MADAR-Turk](https://nyuad.nyu.edu/en/research/faculty-labs-and-projects/computational-approaches-to-modeling-language-lab/resources.html)** — Human Turkish translation of MADAR Damascus sentences  
   2023 · 2,000 Turkish-translated sentences · Language Resource / Modeling · CC BY-SA 4.0 · Registration Required · [Files](https://docs.google.com/forms/d/1Vje0ZJk2p6JxT2X3m4780c8PuALsjASnCX9T0ZT4fg8/viewform)
 - **[turkish-nlp-suite/ATIS Turkish](https://github.com/turkish-nlp-suite/Atis_Turkish)** — Translated ATIS with transfer-learned intents and slots  
-  2022-12 · 5,432 sentences · ~ 1.7 MB (GitHub repo) · Intent and Slot Classification · CC BY-SA 4.0 · Open
+  2022-12 · 5,432 sentences · ~1.7 MB (GitHub repo) · Intent and Slot Classification · CC BY-SA 4.0 · Open
 - **[A small code-switching corpus of Turkish-English](https://github.com/zeynepyirmibes/code-switching-tr-en)**  
   2022-11 · 390 sentences · 99 KB · Language Identification · Open
 - **[Turkish-WikiNER](https://huggingface.co/datasets/turkish-nlp-suite/turkish-wikiNER)** — Wikipedia sentences re-annotated for NER, 18 labels  
@@ -315,7 +316,7 @@ Each entry reads **name** — description, then `release date · scale · size �
 - **[Gender-Bias-in-TR-to-EN-MT-Models](https://github.com/NurIren/Gender-Bias-in-TR-to-EN-MT-Models)** — Template-based Turkish sentences with machine translations  
   2021-04 · 3.2 MB · Language Resource / Modeling · Open
 - **[IronyTR](https://github.com/teghub/IronyTR)** — Irony texts extended from Turkish Irony Dataset  
-  2021 · 600 texts (300 ironic, 300 non-ironic) · ~ 561 KB (GitHub repo) · Irony Detection · Open
+  2021 · 600 texts (300 ironic, 300 non-ironic) · ~561 KB (GitHub repo) · Irony Detection · Open
 - **[UD Turkish Kenet](https://universaldependencies.org/treebanks/tr_kenet/index.html)** — Treebank of Kenet wordnet dictionary examples  
   2021 · 18,687 sentences; 178,658 tokens · 13.1 MB · Dependency Parsing · CC BY-SA 4.0 · Open · [Files](https://github.com/UniversalDependencies/UD_Turkish-Kenet)
 - **[STSb-TR](https://github.com/verimsu/STSb-TR)** — Machine-translated Turkish version of STS Benchmark  
@@ -335,11 +336,11 @@ Each entry reads **name** — description, then `release date · scale · size �
 - **[WikiPron](https://github.com/CUNY-CL/wikipron)** — Multilingual word-pronunciation mining dataset  
   2020-03 · 12,321 broad; 2,784 narrow pronunciation pairs · 419 KB (Turkish subset) · Pronunciation Lexicon · Open
 - **[MKQA (Turkish)](https://github.com/apple/ml-mkqa)** — Open-domain QA pairs across 26 languages  
-  2020 · 260,000 total; 10,000 Turkish questions · ~ 12.4 MB (GitHub repo) · Open-Domain Question Answering · CC BY-SA 3.0 · Open
+  2020 · 260,000 total; 10,000 Turkish questions · ~12.4 MB (GitHub repo) · Open-Domain Question Answering · CC BY-SA 3.0 · Open
 - **[MLSUM (Turkish)](https://github.com/ThomasScialom/MLSUM)** — Multilingual text summarization corpus  
   2020 · 273,617 Turkish article-summary pairs · Summarization · Non-commercial research use · Open
 - **[TrClaim-19](https://github.com/YSKartal/TrClaim19)** — Turkish tweets for check-worthy claim detection  
-  2020 · 2,188 deduplicated annotated tweets in v1.1; 2,287 in v1.0 · ~ 564 KB (GitHub repo) · Check-Worthy Claim Detection · Open · [Files](https://raw.githubusercontent.com/YSKartal/TrClaim19/main/trclaim19_v1_1.csv)
+  2020 · 2,188 deduplicated annotated tweets in v1.1; 2,287 in v1.0 · ~564 KB (GitHub repo) · Check-Worthy Claim Detection · Open · [Files](https://raw.githubusercontent.com/YSKartal/TrClaim19/main/trclaim19_v1_1.csv)
 - **[UD Turkish BOUN](https://universaldependencies.org/treebanks/tr_boun/index.html)** — Manually annotated UD treebank of TNC sentences  
   2020 · 9,761 sentences; 121,835 tokens; 125,212 syntactic words · 9.9 MB · Dependency Parsing · CC BY-SA 4.0 · Open · [Files](https://github.com/UniversalDependencies/UD_Turkish-BOUN)
 - **[WikiLingua (Turkish)](https://github.com/esdurmus/Wikilingua)** — Abstractive summaries extracted from WikiHow  
@@ -363,7 +364,7 @@ Each entry reads **name** — description, then `release date · scale · size �
 - **[SNLI-TR](https://huggingface.co/datasets/boun-tabi/nli_tr)** — Machine-translated Turkish sentence-pair entailment data  
   2020 · 570,152 Turkish sentence pairs · 40.3 MB (compressed archive) · Natural Language Inference · CC BY-SA 4.0 · Open · [Files](https://nli-tr.s3.eu-central-1.amazonaws.com/snli_tr_1.0.zip)
 - **[TQuAD](https://github.com/TQuad/turkish-nlp-qa-dataset)** — Turkish question-and-answer pairs  
-  2019-12 · 9,200 question-answer pairs; 2,507 paragraphs · ~ 1.0 MB (GitHub repo) · Question Answering · Open
+  2019-12 · 9,200 question-answer pairs; 2,507 paragraphs · ~1.0 MB (GitHub repo) · Question Answering · Open
 - **[ConceptNet Numberbatch](https://github.com/commonsense/conceptnet-numberbatch)**  
   2019-08 · 51,308 Turkish entries · 3.19 GB (all languages) · Language Resource / Modeling · CC BY-SA 4.0 · Open · [Files](https://conceptnet.s3.amazonaws.com/downloads/2019/numberbatch/numberbatch-19.08.txt.gz)
 - **[Gender identification on Twitter](https://cloud.iyte.edu.tr/index.php/s/5DhqdlUCCdB60qG)** — Turkish Twitter gender-labeled dataset  
@@ -371,7 +372,7 @@ Each entry reads **name** — description, then `release date · scale · size �
 - **[WikiMatrix](https://opus.nlpl.eu/datasets/WikiMatrix)** — Mined parallel sentences from Wikipedia  
   2019-07 · 477,736 Turkish-English sentence pairs · 53.0 MB · Machine Translation · CC BY-SA 4.0 · Open · [Files](https://object.pouta.csc.fi/OPUS-WikiMatrix/v1/moses/en-tr.txt.zip)
 - **[RUEG](https://doi.org/10.5281/zenodo.11234583)** — Bilingual heritage-speaker elicited narratives  
-  2019-05 · 23.9 GB (all languages) · Language Modeling · CC0 1.0 (Public Domain) · Open
+  2019-05 · 23.9 GB (all languages) · Language Modeling · CC0 1.0 · Open
 - **[Multilingual ATIS](https://catalog.ldc.upenn.edu/LDC2019T04)**  
   2019-02 · 5,871 Turkish utterances · Intent Classification; Slot Filling · LDC User Agreement · Paid
 - **[Tweet-Dataset-NER-SD](https://github.com/dkucuk/Tweet-Dataset-NER-SD)** — Named-entity recognition and stance detection in tweets  
@@ -379,7 +380,7 @@ Each entry reads **name** — description, then `release date · scale · size �
 - **[WikiANN (Turkish)](https://huggingface.co/datasets/unimelb-nlp/wikiann)** — Named-entity tags for Turkish tokens  
   2019 · 40,000 Turkish sentences · 2.9 MB (Turkish subset) · Named Entity Recognition · Open · [Files](https://huggingface.co/datasets/unimelb-nlp/wikiann/tree/main)
 - **[XQuAD (Turkish)](https://github.com/google-deepmind/xquad)** — Professionally translated subset of SQuAD v1.1  
-  2019 · 240 paragraphs; 1,190 Turkish question-answer pairs · ~ 3.2 MB (GitHub repo) · Question Answering · CC BY-SA 4.0 · Open · [Files](https://raw.githubusercontent.com/google-deepmind/xquad/master/xquad.tr.json)
+  2019 · 240 paragraphs; 1,190 Turkish question-answer pairs · ~3.2 MB (GitHub repo) · Question Answering · CC BY-SA 4.0 · Open · [Files](https://raw.githubusercontent.com/google-deepmind/xquad/master/xquad.tr.json)
 - **[kde4](https://github.com/maidis/turkish-parallel-corpora/tree/master/kde4)** — English-Turkish pairs from KDE4 localization files  
   2018-11 · 23,219 sentence pairs · 6.9 MB · Machine Translation · Open
 - **[kde5](https://github.com/maidis/turkish-parallel-corpora/tree/master/kde5)** — English-Turkish pairs from KDE5 localization files  
@@ -389,13 +390,13 @@ Each entry reads **name** — description, then `release date · scale · size �
 - **[KeNet](https://github.com/StarlangSoftware/TurkishWordNet)** — Turkish WordNet lexical database  
   2018 · 77,330 synsets; 109,049 members · 31.3 MB · Lexical Resource · CC BY-SA 4.0 · Open · [Files](https://github.com/StarlangSoftware/TurkishWordNet/raw/master/src/main/resources/turkish_wordnet.xml)
 - **[TrMor2018](https://github.com/ai-ku/TrMor2018)** — Morphological analysis data for Turkish  
-  2018 · 34,673 sentences; 460,669 tokens · ~ 27.2 MB (GitHub repo) · Morphological Analysis · MIT · Open · [Files](https://github.com/ai-ku/TrMor2018/tree/master/TrMor2018)
+  2018 · 34,673 sentences; 460,669 tokens · ~27.2 MB (GitHub repo) · Morphological Analysis · MIT · Open · [Files](https://github.com/ai-ku/TrMor2018/tree/master/TrMor2018)
 - **[Turkish Parliament Transcripts Corpus](https://github.com/onurgu/turkish-parliament-texts)** — Grand National Assembly transcripts, 1920 to 2015  
   2018 · 1.3 GB · Language Modeling · Open · [Files](https://github.com/onurgu/turkish-parliament-texts/releases)
 - **[XNLI](https://github.com/facebookresearch/XNLI)** — Cross-lingual natural language inference pairs  
   2018 · 112,500 total; 7,500 Turkish pairs · 17.9 MB (all languages) · Natural Language Inference · CC BY-NC 4.0 · Open · [Files](https://dl.fbaipublicfiles.com/XNLI/XNLI-1.0.zip)
 - **[Bianet](https://opus.nlpl.eu/datasets/Bianet)** — Turkish-Kurdish-English parallel news corpus  
-  2018 · 34,770 Turkish-English sentence pairs · 3.54 MB · Machine Translation · CC-BY-SA-4.0 · Open · [Files](https://object.pouta.csc.fi/OPUS-Bianet/v1/moses/en-tr.txt.zip)
+  2018 · 34,770 Turkish-English sentence pairs · 3.54 MB · Machine Translation · CC BY-SA 4.0 · Open · [Files](https://object.pouta.csc.fi/OPUS-Bianet/v1/moses/en-tr.txt.zip)
 - **[NRC-VAD](http://saifmohammad.com/WebPages/nrc-vad.html)** — Valence-arousal-dominance word scores, machine-translated to Turkish  
   2018 · 19,971 Turkish entries (v1; v2.1 has no Turkish file) · 44.5 MB (all languages) · Lexical Resource · Non-commercial research use · Open · [Files](http://saifmohammad.com/WebDocs/Lexicons/NRC-VAD-Lexicon.zip)
 - **[2007 CoNLL Shared Task - Basque, Catalan, Czech & Turkish](https://catalog.ldc.upenn.edu/LDC2018T06)** — Dependency treebanks for four languages  
@@ -403,7 +404,7 @@ Each entry reads **name** — description, then `release date · scale · size �
 - **[TTC-4900](https://www.kaggle.com/savasy/ttc4900)** — Turkish news text classification dataset  
   2017-12 · 4,900 Turkish news documents (7 categories x 700 each) · 5.52 MB · Text Classification · Open
 - **[Turkish Bad Word Blacklist](https://github.com/ooguz/turkce-kufur-karaliste)** — List of blacklisted Turkish words  
-  2017-12 · 698 blacklisted words and phrases · ~ 14 KB (GitHub repo) · Content Moderation · CC BY-SA 4.0 · Open
+  2017-12 · 698 blacklisted words and phrases · ~14 KB (GitHub repo) · Content Moderation · CC BY-SA 4.0 · Open
 - **[A sentiment analysis data set (from Başkent Uni.)](https://baskent.edu.tr/~msert/research/datasets/SentimentDatasetTR.html)** — Turkish Twitter sentiment classification corpus  
   2017 · Sentiment Analysis · Application Required
 - **[CoNLL 2017 Shared Task - Automatically Annotated Raw Texts and Word Embeddings](https://lindat.mff.cuni.cz/repository/handle/11234/1-1989)** — Automatically annotated raw text and embeddings  
@@ -459,7 +460,7 @@ Each entry reads **name** — description, then `release date · scale · size �
 - **[TELL](http://linguistics.berkeley.edu/TELL/)** — Turkish lexicon with phonemic transcriptions  
   2009 · 30,000 Turkish words · 1.5 MB (compressed archive) · Pronunciation Lexicon · Open · [Files](http://linguistics.berkeley.edu/~tell/telldata.zip)
 - **[Bilkent Information Retrieval on Turkish Texts](https://github.com/BilkentInformationRetrievalGroup/MilliyetCollectionTREC)** — Turkish newspaper information retrieval collection  
-  2008 · 408,305 documents; 72 queries · ~ 448 MB (GitHub repo) · Information Retrieval · Open
+  2008 · 408,305 documents; 72 queries · ~448 MB (GitHub repo) · Information Retrieval · Open
 - **[CHILDES/Aksu](https://talkbank.org/childes/access/Other/Turkish/Aksu.html)** — Turkish child-adult conversation transcripts 1972-1973  
   2004-04 · 33 children, ages 2;0-4;8 · Language Modeling · CC BY-NC-SA 4.0 · Registration Required
 - **[METU Turkish Corpus (MTC)](https://ii.metu.edu.tr/metu-corpora-research-group)**  
@@ -520,7 +521,7 @@ Each entry reads **name** — description, then `release date · scale · size �
 - **[tr-full-dataset](https://huggingface.co/datasets/Codyfederer/tr-full-dataset)** — Merged speech audio from 88 sources  
   2025-08 · 41,427 segments; 222 speakers; 88 source datasets · 13.4 GB · Automatic Speech Recognition; Text-to-Speech · CC BY 4.0 · Open · [Files](https://huggingface.co/datasets/Codyfederer/tr-full-dataset/tree/main)
 - **[VoxLingua107 (Turkish)](https://huggingface.co/datasets/TalTechNLP/voxlingua107_wds)** — Speech data for language-identification models  
-  2025-08 · 6,628 h total; ~59 h Turkish · ~ 6.9 GB (Turkish subset) · Language Identification · CC BY 4.0 · Open · [Files](https://huggingface.co/datasets/TalTechNLP/voxlingua107_wds/tree/main)
+  2025-08 · 6,628 h total; ~59 h Turkish · ~6.9 GB (Turkish subset) · Language Identification · CC BY 4.0 · Open · [Files](https://huggingface.co/datasets/TalTechNLP/voxlingua107_wds/tree/main)
 - **[Turkish Speech Corpus (TSC)](https://huggingface.co/datasets/issai/Turkish_Speech_Corpus)** — Transcribed Turkish speech corpus for ASR  
   2025-01 · 218.2 hours; 186,171 utterances · 21.4 GB · Automatic Speech Recognition · MIT · Open · [Files](https://huggingface.co/datasets/issai/Turkish_Speech_Corpus/tree/main)
 - **[khanacademy-turkish](https://huggingface.co/datasets/ysdede/khanacademy-turkish)** — Turkish audio clips from Khan Academy  
@@ -546,7 +547,7 @@ Each entry reads **name** — description, then `release date · scale · size �
 - **[MediaSpeech Turkish v1.1 (SLR108)](https://www.openslr.org/108/)** — YouTube media speech segments, manually transcribed  
   2021 · 10 hours of Turkish media speech · 618 MB · Automatic Speech Recognition · CC BY 4.0 · Open · [Files](https://www.openslr.org/resources/108/TR.tgz)
 - **[TurEV-DB (Turkish Emotion-Voice Database)](https://github.com/Xeonen/TurEV-DB)** — Emotional Turkish word recordings in four emotions  
-  2020-08 · 1,735 recordings; 82 words; 4 emotions · ~ 265.7 MB (GitHub repo) · Speech / Audio · Open
+  2020-08 · 1,735 recordings; 82 words; 4 emotions · ~265.7 MB (GitHub repo) · Speech / Audio · Open
 - **[CoVoST 2](https://github.com/facebookresearch/covost)** — Multilingual speech-to-text translation corpus  
   2020-07 · 12,365 Turkish-to-English translations · 281 KB (tr-en translations) · Language Resource / Modeling · CC0 1.0 · Open · [Files](https://dl.fbaipublicfiles.com/covost/covost_v2.tr_en.tsv.tar.gz)
 - **[GlobalPhone Multilingual Model Package](https://catalog.elra.info/en-us/repository/browse/ELRA-S0399/)** — Multilingual acoustic modeling speech data  
@@ -568,7 +569,7 @@ Each entry reads **name** — description, then `release date · scale · size �
 - **[Turkish Broadcast News Speech and Transcripts](https://catalog.ldc.upenn.edu/LDC2012S06)**  
   2012-05-16 · ~130 hours · Automatic Speech Recognition · LDC User Agreement · Paid
 - **[Middle East Technical University Turkish Microphone Speech v 1.0](https://catalog.ldc.upenn.edu/LDC2006S33)**  
-  2006-05-18 · ~5.6 hours; 120 speakers; 4,800 recordings · ~ 600 MB · Automatic Speech Recognition · LDC User Agreement for Non-Members · Paid
+  2006-05-18 · ~5.6 hours; 120 speakers; 4,800 recordings · ~600 MB · Automatic Speech Recognition · LDC User Agreement for Non-Members · Paid
 - **[GlobalPhone Turkish](https://catalog.elra.info/en-us/repository/browse/ELRA-S0206/)**  
   2006-01 · ~17 hours; 100 speakers · Automatic Speech Recognition · ELRA END USER / ELRA VAR · Paid
 
@@ -699,10 +700,10 @@ Two conventions are worth knowing. A licence is recorded only when it covers the
 
 Corrections and additions are welcome — open an issue, or send a pull request if you already have the details.
 
-Authors are welcome to submit their own datasets; please say so in the submission. [METHODOLOGY.md](METHODOLOGY.md) describes what is listed and what is not. There is no need to update the totals at the top of this file.
+Authors are welcome to submit their own datasets; please say so in the submission. [METHODOLOGY.md](METHODOLOGY.md) describes what is listed and what is not. There is no need to update the totals at the top of this file. To change the catalog, edit datasets.json and run node scripts/build.mjs; see [CONTRIBUTING.md](.github/CONTRIBUTING.md).
 
 The one rule is that every value must be traceable to an authoritative source: the dataset's own page, its repository, its paper, or the archive that distributes it. An empty field is better than a plausible guess, so leaving one blank is a perfectly good contribution. When adding a dataset, please include the link you checked it against; when correcting one, say what the source states. Reports of dead links, moved datasets, and duplicate entries are as useful as new additions — several entries here were fixed or removed exactly that way.
 
 ## License
 
-The catalog in this repository (README.md, datasets.json and METHODOLOGY.md) is licensed under [CC BY 4.0](LICENSE). The code of the searchable site (index.html) is licensed under [Apache-2.0](LICENSES/Apache-2.0.txt). Each dataset carries its own license, listed above.
+The catalog in this repository (README.md, datasets.json and METHODOLOGY.md) is licensed under [CC BY 4.0](LICENSE). The code of the searchable site and the scripts (index.html, scripts/ and .github/workflows/) is licensed under [Apache-2.0](LICENSES/Apache-2.0.txt). Each dataset carries its own license, listed above.

@@ -4,7 +4,7 @@ Briefly describe what you added, updated, or corrected.
 
 ## Datasets changed
 
-<!-- You do not need to update the dataset totals in README.md. -->
+<!-- You do not need to update the dataset totals in README.md. They are updated when a change is merged. Edit datasets.json, not README.md. -->
 
 List the dataset(s) affected by this pull request.
 
@@ -33,6 +33,7 @@ State whether you are the author, maintainer, employer, or funder of the dataset
 - [ ] The information in this PR is based on the sources provided above.
 - [ ] I did not guess or infer missing metadata.
 - [ ] I preserved the official dataset name.
+- [ ] I edited datasets.json (not README.md) and ran node scripts/build.mjs and node scripts/check.mjs.
 - [ ] I followed the repository's contribution and methodology guidelines.
 - [ ] I linked the creator's own release, not a copy on another platform.
 - [ ] If the data is synthetic, template-generated, machine-translated, or built from other datasets, the description says so.
