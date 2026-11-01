@@ -1,0 +1,67 @@
+name: Suggest a dataset
+description: Suggest a Turkish dataset for the catalog.
+labels: ["new-dataset"]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Dataset name
+      description: The official name, as the creator writes it.
+    validations:
+      required: true
+  - type: input
+    id: source-url
+    attributes:
+      label: Source URL
+      description: The creator's own release, such as the dataset card, repository, archive record or project page.
+      placeholder: https://
+    validations:
+      required: true
+  - type: dropdown
+    id: relationship
+    attributes:
+      label: Your relationship to the dataset
+      description: A disclosed relationship does not count against a submission.
+      options:
+        - author
+        - maintainer
+        - employer
+        - funder
+        - none
+    validations:
+      required: true
+  - type: input
+    id: turkish-data
+    attributes:
+      label: Where the Turkish data is
+      description: For multilingual datasets, the split, config or count that isolates the Turkish part.
+  - type: input
+    id: license
+    attributes:
+      label: Licence as stated where the data is distributed
+  - type: dropdown
+    id: access
+    attributes:
+      label: Access
+      options:
+        - Open
+        - Gated
+        - Registration Required
+        - Application Required
+        - Paid
+        - Not sure
+  - type: input
+    id: paper
+    attributes:
+      label: Paper or DOI
+  - type: textarea
+    id: other
+    attributes:
+      label: Anything else
+  - type: checkboxes
+    id: methodology
+    attributes:
+      label: Methodology
+      options:
+        - label: I read METHODOLOGY.md
+          required: true
