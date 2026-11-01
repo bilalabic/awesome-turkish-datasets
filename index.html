@@ -6,6 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="light dark" />
   <meta name="description" content="A searchable and filterable view of the Awesome Turkish Datasets catalog." />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
+  <link rel="canonical" href="https://bilalabic.github.io/awesome-turkish-datasets/" />
+  <meta property="og:title" content="Awesome Turkish Datasets" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://bilalabic.github.io/awesome-turkish-datasets/" />
+  <meta property="og:description" content="A searchable and filterable view of the Awesome Turkish Datasets catalog." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230969da'/%3E%3Ctext x='16' y='23' font-size='20' font-weight='700' text-anchor='middle' fill='white' font-family='sans-serif'%3ET%3C/text%3E%3C/svg%3E" />
   <title>Awesome Turkish Datasets</title>
   <style>
     :root {
@@ -114,6 +122,18 @@
 
     .nowrap { white-space: nowrap; }
 
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
     .subtitle {
       max-width: 760px;
       margin: 12px 0 0;
@@ -219,7 +239,8 @@
     .control:focus,
     .button:focus-visible,
     .icon-button:focus-visible,
-    .sort-button:focus-visible {
+    .sort-button:focus-visible,
+    .table-wrap:focus-visible {
       outline: 2px solid var(--accent);
       outline-offset: 2px;
     }
@@ -269,6 +290,8 @@
       font-size: 0.76rem;
       font-weight: 700;
       white-space: nowrap;
+      /* border-collapse borders do not travel with a sticky cell */
+      box-shadow: inset 0 -1px 0 var(--border);
     }
 
     tbody tr:last-child td { border-bottom: 0; }
@@ -351,6 +374,8 @@
       font-size: 0.8rem;
     }
 
+    .footer-links { display: flex; flex-wrap: wrap; gap: 4px 16px; }
+
     .noscript {
       margin: 20px auto;
       width: min(900px, calc(100% - 32px));
@@ -358,6 +383,12 @@
       border: 1px solid var(--border);
       border-radius: var(--radius);
       background: var(--surface);
+    }
+
+    /* The wrapper needs a height for the sticky header to have anything to stick
+       to. Narrow screens keep the old behaviour: the page scrolls, not the frame. */
+    @media (min-width: 1081px) {
+      .table-wrap { max-height: 75vh; }
     }
 
     @media (max-width: 1080px) {
@@ -390,7 +421,7 @@
 </head>
 <body>
   <noscript>
-    <div class="noscript">This catalog needs JavaScript to search and filter.</div>
+    <div class="noscript">This catalog needs JavaScript to search and filter. You can read the full list in the <a href="https://github.com/bilalabic/awesome-turkish-datasets#readme">README on GitHub</a>.</div>
   </noscript>
 
   <main class="page" id="app" hidden>
@@ -401,7 +432,7 @@
         <p class="subtitle">A fast, searchable view of the repository's Turkish text, speech, vision, OCR, and multimodal datasets.</p>
       </div>
       <div class="header-actions">
-        <a class="button" href="https://github.com/BilalAbic/awesome-turkish-datasets" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        <a class="button" href="https://github.com/bilalabic/awesome-turkish-datasets" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
         <button class="icon-button" id="themeToggle" type="button" aria-label="Toggle color theme" title="Toggle color theme">◐</button>
       </div>
     </header>
@@ -447,20 +478,21 @@
       <span id="activeHint">All datasets</span>
     </div>
 
-    <section class="table-wrap" aria-label="Dataset catalog">
+    <section class="table-wrap" role="region" tabindex="0" aria-label="Dataset catalog">
       <table>
+        <caption class="visually-hidden">Turkish datasets, sortable by release date and dataset name</caption>
         <thead>
           <tr>
-            <th><button class="sort-button" type="button" data-sort="date">Released <span class="sort-indicator" id="dateSortIndicator">↓</span></button></th>
-            <th><button class="sort-button" type="button" data-sort="name">Dataset <span class="sort-indicator" id="nameSortIndicator">↕</span></button></th>
-            <th>Category</th>
-            <th>Description</th>
-            <th>Size</th>
-            <th>Scale</th>
-            <th>Task</th>
-            <th>License</th>
-            <th>Access</th>
-            <th>Download</th>
+            <th scope="col" id="dateTh"><button class="sort-button" type="button" data-sort="date">Released <span class="sort-indicator" id="dateSortIndicator" aria-hidden="true">↓</span></button></th>
+            <th scope="col" id="nameTh"><button class="sort-button" type="button" data-sort="name">Dataset <span class="sort-indicator" id="nameSortIndicator" aria-hidden="true">↕</span></button></th>
+            <th scope="col">Category</th>
+            <th scope="col">Description</th>
+            <th scope="col">Size</th>
+            <th scope="col">Scale</th>
+            <th scope="col">Task</th>
+            <th scope="col">License</th>
+            <th scope="col">Access</th>
+            <th scope="col">Download</th>
           </tr>
         </thead>
         <tbody id="datasetBody"></tbody>
@@ -471,7 +503,11 @@
 
     <footer>
       <span>Every entry is checked against the dataset's own source before it is listed.</span>
-      <a href="https://github.com/BilalAbic/awesome-turkish-datasets/blob/main/METHODOLOGY.md" target="_blank" rel="noopener noreferrer">Methodology ↗</a>
+      <span class="footer-links">
+        <a href="./datasets.json" download>Download JSON</a>
+        <a href="./datasets.csv" download>Download CSV</a>
+        <a href="https://github.com/bilalabic/awesome-turkish-datasets/blob/main/METHODOLOGY.md" target="_blank" rel="noopener noreferrer">Methodology ↗</a>
+      </span>
     </footer>
   </main>
 
@@ -480,11 +516,10 @@
       'use strict';
 
       const DATA_URL = './datasets.json';
-      const CATEGORY_HEADINGS = new Set([
-        'Text, NLP & LLM',
-        'Speech & Audio',
-        'Vision, OCR & Multimodal'
-      ]);
+      const SEARCH_DEBOUNCE_MS = 120;
+      // most open first, so the filter reads as a ladder of effort
+      const ACCESS_ORDER = ['Open', 'Gated', 'Registration Required', 'Application Required', 'Paid'];
+      let searchTimer = 0;
 
       const state = {
         datasets: [],
@@ -514,105 +549,10 @@
         visionStat: document.getElementById('visionStat'),
         dateSortIndicator: document.getElementById('dateSortIndicator'),
         nameSortIndicator: document.getElementById('nameSortIndicator'),
+        dateTh: document.getElementById('dateTh'),
+        nameTh: document.getElementById('nameTh'),
         themeToggle: document.getElementById('themeToggle')
       };
-
-      function splitMarkdownRow(line) {
-        const trimmed = line.trim().replace(/^\|/, '').replace(/\|$/, '');
-        const cells = [];
-        let current = '';
-        let escaped = false;
-
-        for (const char of trimmed) {
-          if (escaped) {
-            current += char;
-            escaped = false;
-          } else if (char === '\\') {
-            current += char;
-            escaped = true;
-          } else if (char === '|') {
-            cells.push(current.trim());
-            current = '';
-          } else {
-            current += char;
-          }
-        }
-        cells.push(current.trim());
-        return cells;
-      }
-
-      function isSeparatorRow(cells) {
-        return cells.length > 1 && cells.every(cell => /^:?-{3,}:?$/.test(cell.trim()));
-      }
-
-      function parseMarkdownLink(value) {
-        const text = value.trim();
-        const match = text.match(/^\[([^\]]+)]\((.+)\)$/);
-        if (!match) return { label: stripInlineMarkdown(text), url: '' };
-        return { label: stripInlineMarkdown(match[1]), url: match[2].trim() };
-      }
-
-      function stripInlineMarkdown(value) {
-        return value
-          .replace(/\\\|/g, '|')
-          .replace(/`([^`]+)`/g, '$1')
-          .replace(/\*\*([^*]+)\*\*/g, '$1')
-          .replace(/\*([^*]+)\*/g, '$1')
-          .trim();
-      }
-
-      function parseReadme(markdown) {
-        const lines = markdown.replace(/\r\n?/g, '\n').split('\n');
-        const datasets = [];
-        let category = '';
-
-        for (let i = 0; i < lines.length; i++) {
-          const heading = lines[i].match(/^##\s+(.+?)\s*$/);
-          if (heading) {
-            const candidate = stripInlineMarkdown(heading[1]);
-            category = CATEGORY_HEADINGS.has(candidate) ? candidate : '';
-            continue;
-          }
-
-          if (!category || !/^\s*\|?\s*Released\s*\|/i.test(lines[i])) continue;
-
-          const headers = splitMarkdownRow(lines[i]).map(h => h.toLowerCase());
-          const required = ['released', 'dataset', 'description', 'download', 'size', 'scale', 'task', 'license', 'access'];
-          if (!required.every(name => headers.includes(name))) continue;
-
-          const separator = splitMarkdownRow(lines[i + 1] || '');
-          if (!isSeparatorRow(separator)) continue;
-
-          i += 2;
-          while (i < lines.length && lines[i].includes('|') && lines[i].trim() !== '') {
-            const cells = splitMarkdownRow(lines[i]);
-            if (cells.length < headers.length) break;
-
-            const row = Object.fromEntries(headers.map((header, index) => [header, cells[index] ?? '']));
-            const description = parseMarkdownLink(row.description || '');
-            const download = parseMarkdownLink(row.download || '');
-
-            datasets.push({
-              released: stripInlineMarkdown(row.released || '—'),
-              dataset: stripInlineMarkdown(row.dataset || '—'),
-              category,
-              description: description.label || '—',
-              sourceUrl: description.url,
-              downloadLabel: download.label || '—',
-              downloadUrl: download.url,
-              size: stripInlineMarkdown(row.size || '—'),
-              scale: stripInlineMarkdown(row.scale || '—'),
-              task: stripInlineMarkdown(row.task || '—'),
-              license: stripInlineMarkdown(row.license || '—'),
-              access: stripInlineMarkdown(row.access || '—')
-            });
-            i++;
-          }
-          i--;
-        }
-
-        return datasets;
-      }
 
       function normalizeDate(value) {
         const match = value.trim().match(/^(\d{4})(?:-(\d{2}))?(?:-(\d{2}))?$/);
@@ -720,6 +660,7 @@
           a.href = downloadUrl;
           a.target = '_blank';
           a.rel = 'noopener noreferrer';
+          a.setAttribute('aria-label', `Files for ${item.dataset} (opens in a new tab)`);
           a.textContent = item.downloadLabel === '—' ? 'Open ↗' : `${item.downloadLabel} ↗`;
           downloadCell.appendChild(a);
         } else {
@@ -752,7 +693,13 @@
         });
 
         filtered.sort((a, b) => {
-          if (state.sort === 'date-asc') return normalizeDate(a.released) - normalizeDate(b.released) || a.dataset.localeCompare(b.dataset, 'tr');
+          if (state.sort === 'date-asc') {
+            const da = normalizeDate(a.released);
+            const db = normalizeDate(b.released);
+            // undated entries (0) stay at the bottom in both directions
+            if (!da !== !db) return da ? -1 : 1;
+            return da - db || a.dataset.localeCompare(b.dataset, 'tr');
+          }
           if (state.sort === 'name-asc') return a.dataset.localeCompare(b.dataset, 'tr', { sensitivity: 'base' });
           if (state.sort === 'name-desc') return b.dataset.localeCompare(a.dataset, 'tr', { sensitivity: 'base' });
           return normalizeDate(b.released) - normalizeDate(a.released) || a.dataset.localeCompare(b.dataset, 'tr');
@@ -792,8 +739,10 @@
       }
 
       function populateFilters() {
-        const categories = [...new Set(state.datasets.map(d => d.category))].sort((a, b) => a.localeCompare(b, 'en'));
-        const accessTypes = [...new Set(state.datasets.map(d => d.access))].sort((a, b) => a.localeCompare(b, 'en'));
+        const categories = [...new Set(state.datasets.map(d => d.category).filter(value => value && value !== '—'))].sort((a, b) => a.localeCompare(b, 'en'));
+        const rank = value => (ACCESS_ORDER.includes(value) ? ACCESS_ORDER.indexOf(value) : ACCESS_ORDER.length);
+        const accessTypes = [...new Set(state.datasets.map(d => d.access).filter(value => value && value !== '—'))]
+          .sort((a, b) => rank(a) - rank(b) || a.localeCompare(b, 'en'));
         const tasks = [...new Set(
           state.datasets.flatMap(d => d.task.split(';').map(task => task.trim()).filter(task => task && task !== '—'))
         )].sort((a, b) => a.localeCompare(b, 'en', { sensitivity: 'base' }));
@@ -814,12 +763,21 @@
       function updateSortIndicators() {
         els.dateSortIndicator.textContent = state.sort === 'date-asc' ? '↑' : state.sort === 'date-desc' ? '↓' : '↕';
         els.nameSortIndicator.textContent = state.sort === 'name-asc' ? '↑' : state.sort === 'name-desc' ? '↓' : '↕';
+
+        // aria-sort belongs only on the header that is currently sorted
+        const [activeTh, otherTh] = state.sort.startsWith('date') ? [els.dateTh, els.nameTh] : [els.nameTh, els.dateTh];
+        activeTh.setAttribute('aria-sort', state.sort.endsWith('asc') ? 'ascending' : 'descending');
+        otherTh.removeAttribute('aria-sort');
       }
 
       function bindEvents() {
         els.search.addEventListener('input', event => {
-          state.search = event.target.value;
-          render();
+          const value = event.target.value;
+          clearTimeout(searchTimer);
+          searchTimer = setTimeout(() => {
+            state.search = value;
+            render();
+          }, SEARCH_DEBOUNCE_MS);
         });
         els.category.addEventListener('change', event => {
           state.category = event.target.value;
@@ -838,6 +796,7 @@
           render();
         });
         els.reset.addEventListener('click', () => {
+          clearTimeout(searchTimer);
           state.search = '';
           state.category = '';
           state.access = '';
