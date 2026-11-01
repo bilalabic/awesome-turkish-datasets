@@ -1,6 +1,7 @@
 <!doctype html>
 <!-- SPDX-License-Identifier: Apache-2.0 -->
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -13,7 +14,10 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://bilalabic.github.io/awesome-turkish-datasets/" />
   <meta property="og:description" content="A searchable and filterable view of the Awesome Turkish Datasets catalog." />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230969da'/%3E%3Ctext x='16' y='23' font-size='20' font-weight='700' text-anchor='middle' fill='white' font-family='sans-serif'%3ET%3C/text%3E%3C/svg%3E" />
+  <meta property="og:image" content="https://bilalabic.github.io/awesome-turkish-datasets/og.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230969da'/%3E%3Ctext x='16' y='23' font-size='20' font-weight='700' text-anchor='middle' fill='white' font-family='sans-serif'%3ET%3C/text%3E%3C/svg%3E" />
   <title>Awesome Turkish Datasets</title>
   <style>
     :root {
@@ -75,9 +79,13 @@
       --shadow: none;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
@@ -86,11 +94,15 @@
       line-height: 1.5;
     }
 
-    a { color: var(--accent); }
+    a {
+      color: var(--accent);
+    }
 
     button,
     input,
-    select { font: inherit; }
+    select {
+      font: inherit;
+    }
 
     .page {
       width: min(1500px, calc(100% - 32px));
@@ -120,7 +132,9 @@
       line-height: 1.1;
     }
 
-    .nowrap { white-space: nowrap; }
+    .nowrap {
+      white-space: nowrap;
+    }
 
     .visually-hidden {
       position: absolute;
@@ -138,6 +152,11 @@
       max-width: 760px;
       margin: 12px 0 0;
       color: var(--muted);
+    }
+
+    .subtitle.about {
+      margin-top: 6px;
+      font-size: 0.9rem;
     }
 
     .header-actions {
@@ -174,7 +193,9 @@
     }
 
     .button:hover,
-    .icon-button:hover { background: var(--surface); }
+    .icon-button:hover {
+      background: var(--surface);
+    }
 
     .stats {
       display: grid;
@@ -215,7 +236,9 @@
       background: var(--surface);
     }
 
-    .field { min-width: 0; }
+    .field {
+      min-width: 0;
+    }
 
     .field label {
       display: block;
@@ -245,7 +268,10 @@
       outline-offset: 2px;
     }
 
-    .reset-button { height: 40px; white-space: nowrap; }
+    .reset-button {
+      height: 40px;
+      white-space: nowrap;
+    }
 
     .result-line {
       display: flex;
@@ -294,10 +320,18 @@
       box-shadow: inset 0 -1px 0 var(--border);
     }
 
-    tbody tr:last-child td { border-bottom: 0; }
+    tbody tr:last-child td {
+      border-bottom: 0;
+    }
+
     /* banding carries the eye across ten columns without adding chrome */
-    tbody tr:nth-child(even) { background: color-mix(in srgb, var(--surface) 45%, transparent); }
-    tbody tr:hover { background: color-mix(in srgb, var(--accent-soft) 55%, transparent); }
+    tbody tr:nth-child(even) {
+      background: color-mix(in srgb, var(--surface) 45%, transparent);
+    }
+
+    tbody tr:hover {
+      background: color-mix(in srgb, var(--accent-soft) 55%, transparent);
+    }
 
     .sort-button {
       display: inline-flex;
@@ -312,7 +346,10 @@
       cursor: pointer;
     }
 
-    .sort-indicator { color: var(--muted); font-size: 0.72rem; }
+    .sort-indicator {
+      color: var(--muted);
+      font-size: 0.72rem;
+    }
 
     .dataset-name {
       color: var(--text);
@@ -322,15 +359,46 @@
       overflow-wrap: anywhere;
     }
 
-    .dataset-name:hover { color: var(--accent); text-decoration: underline; }
+    .source-link {
+      display: block;
+      margin-top: 2px;
+      font-size: 0.75rem;
+      text-decoration: none;
+    }
+
+    .source-link:hover {
+      text-decoration: underline;
+    }
+
+    .dataset-name:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
 
     /* wide enough to read, narrow enough that ten columns fit a 1280px screen
        without the table scrolling sideways inside its frame */
-    tbody td:nth-child(2) { min-width: 165px; }
-    .description { min-width: 175px; max-width: 300px; color: var(--muted); }
-    .scale { min-width: 135px; max-width: 230px; }
-    .task { min-width: 125px; }
-    .license { min-width: 100px; }
+    tbody td:nth-child(2) {
+      min-width: 165px;
+    }
+
+    .description {
+      min-width: 175px;
+      max-width: 300px;
+      color: var(--muted);
+    }
+
+    .scale {
+      min-width: 135px;
+      max-width: 230px;
+    }
+
+    .task {
+      min-width: 125px;
+    }
+
+    .license {
+      min-width: 100px;
+    }
 
     .pill {
       display: inline-flex;
@@ -345,10 +413,24 @@
       white-space: normal;
     }
 
-    .pill.open { background: var(--success-bg); color: var(--success-fg); }
-    .pill.gated { background: var(--warn-bg); color: var(--warn-fg); }
-    .pill.paid { background: var(--danger-bg); color: var(--danger-fg); }
-    .category-pill { border: 1px solid var(--border); }
+    .pill.open {
+      background: var(--success-bg);
+      color: var(--success-fg);
+    }
+
+    .pill.gated {
+      background: var(--warn-bg);
+      color: var(--warn-fg);
+    }
+
+    .pill.paid {
+      background: var(--danger-bg);
+      color: var(--danger-fg);
+    }
+
+    .category-pill {
+      border: 1px solid var(--border);
+    }
 
     .download-link {
       font-weight: 600;
@@ -363,7 +445,9 @@
       color: var(--muted);
     }
 
-    .error strong { color: var(--danger-fg); }
+    .error strong {
+      color: var(--danger-fg);
+    }
 
     footer {
       display: flex;
@@ -374,7 +458,11 @@
       font-size: 0.8rem;
     }
 
-    .footer-links { display: flex; flex-wrap: wrap; gap: 4px 16px; }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 16px;
+    }
 
     .link-button {
       border: 0;
@@ -386,7 +474,10 @@
       cursor: pointer;
     }
 
-    .link-button:disabled { color: var(--muted); cursor: default; }
+    .link-button:disabled {
+      color: var(--muted);
+      cursor: default;
+    }
 
     .noscript {
       margin: 20px auto;
@@ -400,40 +491,92 @@
     /* The wrapper needs a height for the sticky header to have anything to stick
        to. Narrow screens keep the old behaviour: the page scrolls, not the frame. */
     @media (min-width: 1081px) {
-      .table-wrap { max-height: 75vh; }
+      .table-wrap {
+        max-height: 75vh;
+      }
     }
 
     @media (max-width: 1080px) {
-      .controls { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-      .search-field { grid-column: 1 / -1; }
-      .reset-button { width: 100%; }
+      .controls {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .search-field {
+        grid-column: 1 / -1;
+      }
+
+      .reset-button {
+        width: 100%;
+      }
     }
 
     @media (max-width: 760px) {
-      .page { width: min(100% - 20px, 1500px); padding-top: 22px; }
-      .topbar { flex-direction: column; }
-      .header-actions { width: 100%; }
-      .button { flex: 1; }
-      .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .controls { grid-template-columns: 1fr 1fr; padding: 10px; }
-      .search-field { grid-column: 1 / -1; }
-      .sort-field { grid-column: 1 / -1; }
-      .reset-button { grid-column: 1 / -1; }
-      .result-line { flex-direction: column; gap: 2px; }
-      footer { flex-direction: column; }
+      .page {
+        width: min(100% - 20px, 1500px);
+        padding-top: 22px;
+      }
+
+      .topbar {
+        flex-direction: column;
+      }
+
+      .header-actions {
+        width: 100%;
+      }
+
+      .button {
+        flex: 1;
+      }
+
+      .stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .controls {
+        grid-template-columns: 1fr 1fr;
+        padding: 10px;
+      }
+
+      .search-field {
+        grid-column: 1 / -1;
+      }
+
+      .sort-field {
+        grid-column: 1 / -1;
+      }
+
+      .reset-button {
+        grid-column: 1 / -1;
+      }
+
+      .result-line {
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      footer {
+        flex-direction: column;
+      }
     }
 
     @media (max-width: 480px) {
-      .controls { grid-template-columns: 1fr; }
+      .controls {
+        grid-template-columns: 1fr;
+      }
+
       .search-field,
       .sort-field,
-      .reset-button { grid-column: auto; }
+      .reset-button {
+        grid-column: auto;
+      }
     }
   </style>
 </head>
+
 <body>
   <noscript>
-    <div class="noscript">This catalog needs JavaScript to search and filter. You can read the full list in the <a href="https://github.com/bilalabic/awesome-turkish-datasets#readme">README on GitHub</a>.</div>
+    <div class="noscript">This catalog needs JavaScript to search and filter. You can read the full list in the <a
+        href="https://github.com/bilalabic/awesome-turkish-datasets#readme">README on GitHub</a>.</div>
   </noscript>
 
   <main class="page" id="app" hidden>
@@ -441,37 +584,52 @@
       <div>
         <p class="eyebrow">Open dataset catalog</p>
         <h1>Awesome Turkish <span class="nowrap">Datasets</span></h1>
-        <p class="subtitle">A fast, searchable view of the repository's Turkish text, speech, vision, OCR, and multimodal datasets.</p>
+        <p class="subtitle">A fast, searchable view of the repository's Turkish text, speech, vision, OCR, and
+          multimodal datasets.</p>
+        <p class="subtitle about" id="aboutLine">Turkish datasets, each checked against its own source.</p>
       </div>
       <div class="header-actions">
-        <a class="button" href="https://github.com/bilalabic/awesome-turkish-datasets" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-        <button class="icon-button" id="themeToggle" type="button" aria-label="Toggle color theme" title="Toggle color theme">◐</button>
+        <a class="button" href="https://github.com/bilalabic/awesome-turkish-datasets" target="_blank"
+          rel="noopener noreferrer">GitHub ↗</a>
+        <button class="icon-button" id="themeToggle" type="button" aria-label="Toggle color theme"
+          title="Toggle color theme">◐</button>
       </div>
     </header>
 
     <section class="stats" aria-label="Catalog statistics">
-      <div class="stat"><span class="stat-value" id="totalStat">—</span><span class="stat-label">Total datasets</span></div>
-      <div class="stat"><span class="stat-value" id="textStat">—</span><span class="stat-label">Text / NLP / LLM</span></div>
-      <div class="stat"><span class="stat-value" id="speechStat">—</span><span class="stat-label">Speech / Audio</span></div>
-      <div class="stat"><span class="stat-value" id="visionStat">—</span><span class="stat-label">Vision / OCR / Multimodal</span></div>
+      <div class="stat"><span class="stat-value" id="totalStat">—</span><span class="stat-label">Total datasets</span>
+      </div>
+      <div class="stat"><span class="stat-value" id="textStat">—</span><span class="stat-label">Text / NLP / LLM</span>
+      </div>
+      <div class="stat"><span class="stat-value" id="speechStat">—</span><span class="stat-label">Speech / Audio</span>
+      </div>
+      <div class="stat"><span class="stat-value" id="visionStat">—</span><span class="stat-label">Vision / OCR /
+          Multimodal</span></div>
     </section>
 
     <section class="controls" aria-label="Dataset filters">
       <div class="field search-field">
         <label for="search">Search</label>
-        <input class="control" id="search" type="search" autocomplete="off" placeholder="Dataset name, task, license…" />
+        <input class="control" id="search" type="search" autocomplete="off"
+          placeholder="Dataset name, task, license…" />
       </div>
       <div class="field">
         <label for="categoryFilter">Category</label>
-        <select class="control" id="categoryFilter"><option value="">All categories</option></select>
+        <select class="control" id="categoryFilter">
+          <option value="">All categories</option>
+        </select>
       </div>
       <div class="field">
         <label for="accessFilter">Access</label>
-        <select class="control" id="accessFilter"><option value="">All access types</option></select>
+        <select class="control" id="accessFilter">
+          <option value="">All access types</option>
+        </select>
       </div>
       <div class="field">
         <label for="taskFilter">Task</label>
-        <select class="control" id="taskFilter"><option value="">All tasks</option></select>
+        <select class="control" id="taskFilter">
+          <option value="">All tasks</option>
+        </select>
       </div>
       <div class="field sort-field">
         <label for="sortSelect">Sort</label>
@@ -495,8 +653,10 @@
         <caption class="visually-hidden">Turkish datasets, sortable by release date and dataset name</caption>
         <thead>
           <tr>
-            <th scope="col" id="dateTh"><button class="sort-button" type="button" data-sort="date">Released <span class="sort-indicator" id="dateSortIndicator" aria-hidden="true">↓</span></button></th>
-            <th scope="col" id="nameTh"><button class="sort-button" type="button" data-sort="name">Dataset <span class="sort-indicator" id="nameSortIndicator" aria-hidden="true">↕</span></button></th>
+            <th scope="col" id="dateTh"><button class="sort-button" type="button" data-sort="date">Released <span
+                  class="sort-indicator" id="dateSortIndicator" aria-hidden="true">↓</span></button></th>
+            <th scope="col" id="nameTh"><button class="sort-button" type="button" data-sort="name">Dataset <span
+                  class="sort-indicator" id="nameSortIndicator" aria-hidden="true">↕</span></button></th>
             <th scope="col">Category</th>
             <th scope="col">Description</th>
             <th scope="col">Size</th>
@@ -518,7 +678,8 @@
       <span class="footer-links">
         <a href="./datasets.json" download>Download JSON</a>
         <button type="button" class="link-button" id="downloadCsv" disabled>Download CSV</button>
-        <a href="https://github.com/bilalabic/awesome-turkish-datasets/blob/main/METHODOLOGY.md" target="_blank" rel="noopener noreferrer">Methodology ↗</a>
+        <a href="https://github.com/bilalabic/awesome-turkish-datasets/blob/main/METHODOLOGY.md" target="_blank"
+          rel="noopener noreferrer">Methodology ↗</a>
       </span>
     </footer>
   </main>
@@ -532,6 +693,40 @@
       // most open first, so the filter reads as a ladder of effort
       const ACCESS_ORDER = ['Open', 'Gated', 'Registration Required', 'Application Required', 'Paid'];
       let searchTimer = 0;
+
+      // The build script extracts this block, so page URLs match on the client and in the static pages.
+      // slug:start
+      function slugify(name) {
+        const slug = String(name)
+          .replace(/[çÇ]/g, 'c').replace(/[ğĞ]/g, 'g').replace(/[ıİ]/g, 'i')
+          .replace(/[öÖ]/g, 'o').replace(/[şŞ]/g, 's').replace(/[üÜ]/g, 'u')
+          .normalize('NFKD')
+          .replace(/[\u0300-\u036f]/g, '')
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, '-')
+          .replace(/^-+|-+$/g, '')
+          .slice(0, 80)
+          .replace(/-+$/, '');
+        return slug || 'dataset';
+      }
+
+      // Slugs in JSON order; a repeated slug gets -2, -3 and so on.
+      function assignSlugs(names, onCollision) {
+        const used = new Set();
+        return names.map(name => {
+          const base = slugify(name);
+          let slug = base;
+          let n = 1;
+          while (used.has(slug)) {
+            n += 1;
+            slug = `${base}-${n}`;
+          }
+          if (n > 1 && onCollision) onCollision(name, slug);
+          used.add(slug);
+          return slug;
+        });
+      }
+      // slug:end
 
       const state = {
         datasets: [],
@@ -559,6 +754,7 @@
         textStat: document.getElementById('textStat'),
         speechStat: document.getElementById('speechStat'),
         visionStat: document.getElementById('visionStat'),
+        about: document.getElementById('aboutLine'),
         dateSortIndicator: document.getElementById('dateSortIndicator'),
         nameSortIndicator: document.getElementById('nameSortIndicator'),
         dateTh: document.getElementById('dateTh'),
@@ -633,20 +829,21 @@
         tr.appendChild(makeCell(item.released));
 
         const datasetCell = document.createElement('td');
+        const name = document.createElement('a');
+        name.className = 'dataset-name';
+        name.href = `./d/${item.slug}/`;
+        name.textContent = item.dataset;
+        datasetCell.appendChild(name);
         const sourceUrl = safeUrl(item.sourceUrl);
         if (sourceUrl) {
           const a = document.createElement('a');
-          a.className = 'dataset-name';
+          a.className = 'source-link';
           a.href = sourceUrl;
           a.target = '_blank';
           a.rel = 'noopener noreferrer';
-          a.textContent = item.dataset;
+          a.setAttribute('aria-label', `Source of ${item.dataset} (opens in a new tab)`);
+          a.textContent = 'Source ↗';
           datasetCell.appendChild(a);
-        } else {
-          const span = document.createElement('span');
-          span.className = 'dataset-name';
-          span.textContent = item.dataset;
-          datasetCell.appendChild(span);
         }
         tr.appendChild(datasetCell);
 
@@ -770,6 +967,7 @@
         els.textStat.textContent = count('Text, NLP & LLM').toLocaleString();
         els.speechStat.textContent = count('Speech & Audio').toLocaleString();
         els.visionStat.textContent = count('Vision, OCR & Multimodal').toLocaleString();
+        els.about.textContent = `${state.datasets.length.toLocaleString()} datasets: ${count('Text, NLP & LLM').toLocaleString()} text, ${count('Speech & Audio').toLocaleString()} speech, ${count('Vision, OCR & Multimodal').toLocaleString()} vision. Each one is checked against its own source.`;
       }
 
       function updateSortIndicators() {
@@ -899,7 +1097,9 @@
           if (!response.ok) throw new Error(`datasets.json returned HTTP ${response.status}`);
           const entries = await response.json();
           const dash = value => (value && String(value).trim()) || '—';
-          state.datasets = entries.map(entry => ({
+          const slugs = assignSlugs(entries.map(entry => entry.dataset));
+          state.datasets = entries.map((entry, i) => ({
+            slug: slugs[i],
             released: dash(entry.released),
             dataset: dash(entry.dataset),
             category: entry.category || '',
@@ -941,4 +1141,5 @@
     })();
   </script>
 </body>
+
 </html>
