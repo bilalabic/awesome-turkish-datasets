@@ -1,0 +1,31 @@
+name: Report a problem
+description: Report a wrong or outdated value in an existing entry.
+labels: ["data-fix"]
+body:
+  - type: input
+    id: entry
+    attributes:
+      label: Entry name
+    validations:
+      required: true
+  - type: dropdown
+    id: problem-type
+    attributes:
+      label: Problem type
+      options:
+        - dead link
+        - wrong licence
+        - wrong size or scale
+        - wrong date
+        - duplicate
+        - should be removed
+        - other
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: What the source says
+      description: Say what the source states, and include the URL where we can see it.
+    validations:
+      required: true
