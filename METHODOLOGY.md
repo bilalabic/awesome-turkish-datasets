@@ -171,7 +171,7 @@ Contributors do not need to update the dataset totals in the README. They are up
 
 ## Metadata
 
-Each entry in `datasets.json` has the following 12 fields, in this order. The README and `datasets.csv` are generated from them.
+Each entry in `datasets.json` has the following 12 fields, in this order. The README is generated from them.
 
 | Field             | Description                                                                                          |
 | ----------------- | ---------------------------------------------------------------------------------------------------- |
