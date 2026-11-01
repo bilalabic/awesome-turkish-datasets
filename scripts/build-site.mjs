@@ -8,7 +8,7 @@
 // The catalog table is pre-rendered so crawlers and readers without JavaScript see it.
 // Every entry also gets a page at d/<slug>/. Output is deterministic and is never committed.
 // No dependencies.
-import { readFileSync, writeFileSync, mkdirSync, copyFileSync, rmSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, copyFileSync, rmSync, readdirSync, statSync } from 'node:fs';
 import { resolve, join } from 'node:path';
 import { CATEGORIES, sortSection } from './build.mjs';
 
@@ -405,6 +405,12 @@ write('sitemap.xml', sitemap);
 write('robots.txt', robots);
 write('llms.txt', llms);
 write('llms-full.txt', llmsFull);
-copyFileSync(join(root, '_web', 'og.png'), join(out, 'og.png'));
+// Every other file in _web/ (og.png, search-engine verification files and so on)
+// is published unchanged at the site root. index.html is the template rendered above.
+for (const name of readdirSync(join(root, '_web'))) {
+  if (name === 'index.html') continue;
+  const source = join(root, '_web', name);
+  if (statSync(source).isFile()) copyFileSync(source, join(out, name));
+}
 
 console.log(`Built ${out}: index + ${data.length} detail pages, sitemap with ${data.length + 1} URLs.`);
