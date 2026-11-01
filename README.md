@@ -26,7 +26,7 @@ Each entry reads **name** — description, then `release date · scale · size �
 - **[Guardrail-TR](https://huggingface.co/datasets/ytu-ce-cosmos/guardrail-tr)** — Translated and adapted prompt-safety classification data  
   2026-07-19 · 405,270 prompts · 106.3 MB · LLM Safety Classification · Open · [Files](https://huggingface.co/datasets/ytu-ce-cosmos/guardrail-tr/tree/main)
 - **[Turkish Conversation Prompt-Injection Dataset](https://huggingface.co/datasets/3nesdeniz/turkish-conversation-prompt-injection)** — Synthetic Turkish conversations for prompt-injection detection  
-  2026-07-10 · 750 rows · 44.1 KB · LLM Safety Classification · CC BY 4.0 · Open · [Files](https://huggingface.co/datasets/3nesdeniz/turkish-conversation-prompt-injection/tree/main)
+  2026-07-09 · 750 rows · 44.1 KB · LLM Safety Classification · CC BY 4.0 · Open · [Files](https://huggingface.co/datasets/3nesdeniz/turkish-conversation-prompt-injection/tree/main)
 - **[Turkish-Python-instruction](https://huggingface.co/datasets/bysismo/Turkish-Python-instruction)** — Synthetic Python coding instructions  
   2026-07 · 4,876 rows · 2.8 MB · Instruction Tuning; Code Generation · CC BY-NC 4.0 · Open · [Files](https://huggingface.co/datasets/bysismo/Turkish-Python-instruction/tree/main)
 - **[ABSA-TR](https://huggingface.co/datasets/ytu-ce-cosmos/absa-tr)** — Review sentences with LLM-annotated aspect sentiment  
