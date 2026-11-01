@@ -171,19 +171,22 @@ Contributors do not need to update the dataset totals in the README. They are up
 
 ## Metadata
 
-The main catalog may contain the following fields when available:
+Each entry in `datasets.json` has the following 12 fields, in this order. The README and `datasets.csv` are generated from them.
 
-| Field           | Description                                            |
-| --------------- | ------------------------------------------------------ |
-| **Released**    | First documented public release                        |
-| **Dataset**     | Official dataset name                                  |
-| **Description** | Official page, paper, or dataset card                  |
-| **Download**    | Primary access or download location                    |
-| **Size**        | Storage size                                           |
-| **Scale**       | Samples, sentences, tokens, hours, images, pairs, etc. |
-| **Task**        | Primary task or intended use                           |
-| **License**     | Published dataset license                              |
-| **Access**      | Open, gated, registration, application, or paid        |
+| Field             | Description                                                                                          |
+| ----------------- | ---------------------------------------------------------------------------------------------------- |
+| **released**      | First documented public release: `YYYY`, `YYYY-MM` or `YYYY-MM-DD`; empty when unknown               |
+| **dataset**       | Official dataset name                                                                                |
+| **category**      | Section of the README: Text, NLP & LLM; Speech & Audio; or Vision, OCR & Multimodal                  |
+| **description**   | Short description drawn from the official page, paper, or dataset card                               |
+| **sourceUrl**     | Canonical source: dataset card, repository, catalogue record, or project page                        |
+| **downloadLabel** | Link text for the download link (usually `Files`)                                                    |
+| **downloadUrl**   | Direct location of the files, where one is known                                                     |
+| **size**          | Storage size, with a qualifier such as (Turkish subset) when needed; a leading `~` means approximate |
+| **scale**         | Samples, sentences, tokens, hours, images, pairs, etc.                                               |
+| **task**          | Primary task or intended use; several tasks are separated by `; `                                    |
+| **license**       | Published license of the data itself; empty when it could not be established                         |
+| **access**        | Open, Gated, Registration Required, Application Required, or Paid                                    |
 
 Missing optional metadata does not automatically disqualify an otherwise valid dataset.
 
