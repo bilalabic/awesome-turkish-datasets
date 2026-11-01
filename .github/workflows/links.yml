@@ -1,0 +1,56 @@
+# SPDX-License-Identifier: Apache-2.0
+name: Links
+
+on:
+  schedule:
+    - cron: '17 5 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: .lycheecache
+          key: lychee-${{ github.run_id }}
+          restore-keys: lychee-
+      # Hugging Face rate-limits link checkers; scripts/hf-drift.mjs covers those entries.
+      - name: Check links
+        id: lychee
+        uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
+        with:
+          args: >-
+            --cache --max-cache-age 7d
+            --exclude 'huggingface\.co'
+            --max-retries 2 --timeout 20
+            --no-progress
+            README.md
+          fail: false
+          output: lychee-report.md
+          jobSummary: true
+      - name: Report broken links in an issue
+        if: steps.lychee.outputs.exit_code != '0'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          prefix='Broken links'
+          title="$prefix ($(date -u +%Y-%m-%d))"
+          existing=$(gh issue list --state open --search "\"$prefix\" in:title" --json number,title \
+            --jq "[.[] | select(.title | startswith(\"$prefix\"))][0].number // empty")
+          if [ -n "$existing" ]; then
+            gh issue comment "$existing" --body-file lychee-report.md
+          else
+            gh issue create --title "$title" --body-file lychee-report.md
+          fi

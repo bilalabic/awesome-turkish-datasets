@@ -1,0 +1,53 @@
+# SPDX-License-Identifier: Apache-2.0
+name: Hugging Face drift
+
+on:
+  schedule:
+    - cron: '37 5 1 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  drift:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+      - name: Check Hugging Face metadata
+        id: check
+        run: |
+          set +e
+          node scripts/hf-drift.mjs > drift.md
+          code=$?
+          cat drift.md
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+          # Exit 2 means new findings and is reported below; anything else non-zero is a real failure.
+          if [ "$code" -ne 0 ] && [ "$code" -ne 2 ]; then exit "$code"; fi
+      - name: Report drift in an issue
+        if: steps.check.outputs.code == '2'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          prefix='Hugging Face metadata drift'
+          title="$prefix ($(date -u +%Y-%m-%d))"
+          existing=$(gh issue list --state open --search "\"$prefix\" in:title" --json number,title \
+            --jq "[.[] | select(.title | startswith(\"$prefix\"))][0].number // empty")
+          if [ -n "$existing" ]; then
+            gh issue comment "$existing" --body-file drift.md
+          else
+            gh issue create --title "$title" --body-file drift.md
+          fi
+      - name: Fail when drift was found
+        if: steps.check.outputs.code == '2'
+        run: exit 2

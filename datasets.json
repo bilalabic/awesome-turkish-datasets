@@ -1,6 +1,6 @@
 [
  {
-  "released": "2026-07-10",
+  "released": "2026-07-09",
   "dataset": "Turkish Conversation Prompt-Injection Dataset",
   "category": "Text, NLP & LLM",
   "description": "Synthetic Turkish conversations for prompt-injection detection",
