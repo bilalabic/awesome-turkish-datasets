@@ -28,3 +28,5 @@ jobs:
         run: node scripts/check.mjs
       - name: Check generated files are up to date
         run: node scripts/build.mjs --check
+      - name: Build the site
+        run: node scripts/build-site.mjs --out "$RUNNER_TEMP/site"
