@@ -1,0 +1,17 @@
+[
+  {
+    "dataset": "SNLI-TR",
+    "kind": "licence-unmapped",
+    "reason": "Reviewed 2026-11: catalog value is intentional"
+  },
+  {
+    "dataset": "Wikipedia (Turkish)",
+    "kind": "licence-unmapped",
+    "reason": "Reviewed 2026-11: catalog value is intentional"
+  },
+  {
+    "dataset": "OpenITI-MAKHZAN Ottoman Lines (HF OttomanNLP)",
+    "kind": "licence-unmapped",
+    "reason": "Reviewed 2026-11: catalog value is intentional"
+  }
+]
