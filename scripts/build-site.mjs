@@ -111,13 +111,13 @@ function renderRow(item) {
   const cell = (text, label, cls = '') => `<td${cls ? ` class="${cls}"` : ''} data-label="${label}">${esc(dash(text))}</td>`;
   const sourceUrl = safeUrl(item.sourceUrl);
   const source = sourceUrl
-    ? `<a class="source-link" href="${esc(sourceUrl)}" target="_blank" rel="noopener noreferrer" aria-label="Source of ${name} (opens in a new tab)">Source ↗</a>`
+    ? `<a class="source-link" href="${esc(sourceUrl)}" target="_blank" rel="noopener noreferrer" aria-label="Source of ${name} (opens in a new tab)">Source ↗\uFE0E</a>`
     : '';
   const access = dash(item.access);
   const downloadUrl = safeUrl(item.downloadUrl);
   const label = dash(item.downloadLabel);
   const download = downloadUrl
-    ? `<a class="download-link" href="${esc(downloadUrl)}" target="_blank" rel="noopener noreferrer" aria-label="Files for ${name} (opens in a new tab)">${esc(label === '—' ? 'Open' : label)} ↗</a>`
+    ? `<a class="download-link" href="${esc(downloadUrl)}" target="_blank" rel="noopener noreferrer" aria-label="Files for ${name} (opens in a new tab)">${esc(label === '—' ? 'Open' : label)} ↗\uFE0E</a>`
     : '—';
   return [
     '<tr>',
@@ -169,16 +169,16 @@ index = swap(index, '</head>', `  ${jsonLd(indexLd)}\n</head>`);
 const styleBlock = html.match(/<style>[\s\S]*?<\/style>/)[0];
 const detailStyle = `<style>
     .page.detail { width: min(860px, calc(100% - 32px)); }
-    .crumbs { margin: 0 0 14px; color: var(--muted); font-size: 0.88rem; }
+    .crumbs { margin: 0 0 16px; color: var(--muted); font-size: 0.88rem; }
     .crumbs a { color: var(--muted); }
-    .summary { margin: 14px 0 0; }
-    .detail-description { margin: 10px 0 0; color: var(--muted); }
-    .facts { display: grid; grid-template-columns: max-content 1fr; gap: 8px 20px; margin: 22px 0; padding: 16px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); }
-    .facts dt { color: var(--muted); font-size: 0.82rem; font-weight: 600; }
+    .summary { margin: 16px 0 0; }
+    .detail-description { margin: 8px 0 0; color: var(--muted); }
+    .facts { display: grid; grid-template-columns: max-content 1fr; align-items: baseline; gap: 8px 24px; margin: 24px 0; padding: 24px; border-radius: var(--radius); background: var(--surface); }
+    .facts dt { color: var(--muted); font-size: 0.8125rem; font-weight: 600; }
     .facts dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
-    .related { padding-left: 20px; }
+    .related { padding-left: 24px; }
     .related li { margin: 4px 0; }
-    @media (max-width: 480px) { .facts { grid-template-columns: 1fr; gap: 2px; } .facts dd { margin-bottom: 8px; } }
+    @media (max-width: 480px) { .facts { grid-template-columns: 1fr; gap: 4px; padding: 16px; } .facts dd { margin-bottom: 8px; } }
   </style>`;
 
 const LICENSES = {
@@ -258,7 +258,7 @@ function renderDetail(e) {
   const url = pageUrl(e);
   const source = safeUrl(e.sourceUrl);
   const download = safeUrl(e.downloadUrl);
-  const ext = (href, text) => `<a href="${esc(href)}" target="_blank" rel="noopener">${esc(text)} ↗</a>`;
+  const ext = (href, text) => `<a href="${esc(href)}" target="_blank" rel="noopener">${esc(text)} ↗\uFE0E</a>`;
   const rows = [
     ['Released', e.released ? esc(e.released) : '—'],
     ['Category', esc(e.category || '—')],
@@ -314,7 +314,7 @@ function renderDetail(e) {
 ${rows.map(([k, v]) => `      <dt>${k}</dt><dd>${v}</dd>`).join('\n')}
     </dl>
 
-    <p><a href="${esc(report)}" target="_blank" rel="noopener">Report a problem with this entry ↗</a></p>
+    <p><a href="${esc(report)}" target="_blank" rel="noopener">Report a problem with this entry ↗\uFE0E</a></p>
 
     <section aria-labelledby="related-heading">
       <h2 id="related-heading">Related datasets</h2>
@@ -327,7 +327,7 @@ ${list.map(o => `        <li><a href="../${o.slug}/">${esc(o.dataset)}</a></li>`
       <span>Every entry is checked against the dataset's own source before it is listed.</span>
       <span class="footer-links">
         <a href="../../">Catalog</a>
-        <a href="${METHODOLOGY}" target="_blank" rel="noopener noreferrer">Methodology ↗</a>
+        <a href="${METHODOLOGY}" target="_blank" rel="noopener noreferrer">Methodology ↗\uFE0E</a>
       </span>
     </footer>
   </main>

@@ -7,8 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="light dark" />
   <meta name="description" content="A searchable and filterable view of the Awesome Turkish Datasets catalog." />
-  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
-  <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#fbfbfc" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#14171c" media="(prefers-color-scheme: dark)" />
   <link rel="canonical" href="https://bilalabic.github.io/awesome-turkish-datasets/" />
   <meta property="og:title" content="Awesome Turkish Datasets" />
   <meta property="og:type" content="website" />
@@ -21,62 +21,67 @@
   <title>Awesome Turkish Datasets</title>
   <style>
     :root {
-      --bg: #ffffff;
-      --surface: #f6f8fa;
+      /* Surfaces step gently: page, soft tint, slightly stronger tint. */
+      --bg: #fbfbfc;
+      --surface: #f4f5f7;
+      --surface-strong: #eceef1;
       --surface-2: #ffffff;
-      --text: #1f2328;
-      --muted: #636c76;
-      --border: #d0d7de;
+      --text: #24292f;
+      --muted: #5c6670;
+      /* one hairline token for separators and inputs */
+      --border: #e4e7eb;
       --accent: #0969da;
-      --accent-soft: #ddf4ff;
-      --success-bg: #dafbe1;
-      --success-fg: #116329;
-      --warn-bg: #fff8c5;
-      --warn-fg: #7d4e00;
-      --danger-bg: #ffebe9;
-      --danger-fg: #cf222e;
-      --shadow: 0 1px 2px rgba(31, 35, 40, 0.05);
+      --accent-soft: #d6e6fa;
+      --accent-tint: #eef4fc;
+      /* the only strong line: keyboard focus */
+      --ring: #0969da;
+      /* status dots, muted */
+      --dot-open: #4ea36a;
+      --dot-gated: #d0a03a;
+      --dot-paid: #cf6f69;
+      --danger-fg: #b3261e;
       --radius: 10px;
+      --radius-sm: 8px;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif,
         "Apple Color Emoji", "Segoe UI Emoji";
     }
 
     @media (prefers-color-scheme: dark) {
       :root:not([data-theme="light"]) {
-        --bg: #0d1117;
-        --surface: #161b22;
-        --surface-2: #0d1117;
-        --text: #e6edf3;
-        --muted: #8b949e;
-        --border: #30363d;
-        --accent: #58a6ff;
-        --accent-soft: #0c2d6b;
-        --success-bg: #12261e;
-        --success-fg: #56d364;
-        --warn-bg: #2d2600;
-        --warn-fg: #e3b341;
-        --danger-bg: #2d1215;
-        --danger-fg: #ff7b72;
-        --shadow: none;
+        --bg: #14171c;
+        --surface: #1a1e24;
+        --surface-strong: #232830;
+        --surface-2: #14171c;
+        --text: #e2e6eb;
+        --muted: #9aa4af;
+        --border: #2a3039;
+        --accent: #79b8ff;
+        --accent-soft: #28425f;
+        --accent-tint: #1a2636;
+        --ring: #79b8ff;
+        --dot-open: #6bae82;
+        --dot-gated: #c4a259;
+        --dot-paid: #c47f7a;
+        --danger-fg: #f0a29c;
       }
     }
 
     :root[data-theme="dark"] {
-      --bg: #0d1117;
-      --surface: #161b22;
-      --surface-2: #0d1117;
-      --text: #e6edf3;
-      --muted: #8b949e;
-      --border: #30363d;
-      --accent: #58a6ff;
-      --accent-soft: #0c2d6b;
-      --success-bg: #12261e;
-      --success-fg: #56d364;
-      --warn-bg: #2d2600;
-      --warn-fg: #e3b341;
-      --danger-bg: #2d1215;
-      --danger-fg: #ff7b72;
-      --shadow: none;
+      --bg: #14171c;
+      --surface: #1a1e24;
+      --surface-strong: #232830;
+      --surface-2: #14171c;
+      --text: #e2e6eb;
+      --muted: #9aa4af;
+      --border: #2a3039;
+      --accent: #79b8ff;
+      --accent-soft: #28425f;
+      --accent-tint: #1a2636;
+      --ring: #79b8ff;
+      --dot-open: #6bae82;
+      --dot-gated: #c4a259;
+      --dot-paid: #c47f7a;
+      --danger-fg: #f0a29c;
     }
 
     * {
@@ -92,6 +97,7 @@
       background: var(--bg);
       color: var(--text);
       line-height: 1.5;
+      transition: background-color .15s ease, color .15s ease;
     }
 
     a {
@@ -104,32 +110,34 @@
       font: inherit;
     }
 
+    /* Spacing runs on an 8px scale (8, 16, 24, 32, 48), with 4px for tight gaps. */
     .page {
       width: min(1500px, calc(100% - 32px));
       margin: 0 auto;
-      padding: 34px 0 48px;
+      padding: 32px 0 48px;
     }
 
     .topbar {
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
-      gap: 20px;
-      margin-bottom: 24px;
+      gap: 24px;
+      margin-bottom: 32px;
     }
 
     .eyebrow {
-      margin: 0 0 6px;
+      margin: 0 0 8px;
       color: var(--muted);
-      font-size: 0.88rem;
+      font-size: 0.875rem;
       font-weight: 600;
     }
 
     h1 {
       margin: 0;
-      font-size: clamp(1.75rem, 4vw, 2.5rem);
-      letter-spacing: -0.03em;
-      line-height: 1.1;
+      font-size: clamp(1.625rem, 3.2vw, 2.125rem);
+      font-weight: 650;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
     }
 
     .nowrap {
@@ -150,13 +158,13 @@
 
     .subtitle {
       max-width: 760px;
-      margin: 12px 0 0;
+      margin: 8px 0 0;
       color: var(--muted);
     }
 
     .subtitle.about {
-      margin-top: 6px;
-      font-size: 0.9rem;
+      margin-top: 8px;
+      font-size: 0.875rem;
     }
 
     .header-actions {
@@ -170,24 +178,23 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 38px;
+      min-height: 40px;
       border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: var(--radius-sm);
       background: var(--surface-2);
       color: var(--text);
       text-decoration: none;
       cursor: pointer;
-      box-shadow: var(--shadow);
     }
 
     .button {
-      padding: 7px 12px;
+      padding: 8px 16px;
       font-weight: 600;
-      font-size: 0.9rem;
+      font-size: 0.875rem;
     }
 
     .icon-button {
-      width: 38px;
+      width: 40px;
       padding: 0;
       font-size: 1rem;
     }
@@ -197,58 +204,62 @@
       background: var(--surface);
     }
 
+    /* Stat cards: a soft tint and no outline. The border is there only to hold the
+       selected state without the card changing size. */
     .stats {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 10px;
-      margin: 0 0 18px;
+      gap: 8px;
+      margin: 0 0 16px;
     }
 
     .stat {
       display: block;
       width: 100%;
-      padding: 14px 16px;
-      border: 1px solid var(--border);
+      padding: 16px;
+      border: 1px solid transparent;
       border-radius: var(--radius);
-      background: var(--surface-2);
-      box-shadow: var(--shadow);
+      background: var(--surface);
       color: inherit;
       text-align: left;
       cursor: pointer;
     }
 
     .stat:hover {
-      border-color: var(--muted);
-      background: var(--surface);
+      background: var(--surface-strong);
     }
 
-    /* selected: a second border ring and the surface fill, so it is not colour alone */
+    /* selected: accent tint with a soft accent edge; the label also turns to full
+       text colour, so the state does not depend on hue alone */
     .stat[aria-pressed="true"] {
-      border-color: var(--muted);
-      background: var(--surface);
-      box-shadow: inset 0 0 0 1px var(--muted);
+      border-color: var(--accent-soft);
+      background: var(--accent-tint);
+    }
+
+    .stat[aria-pressed="true"] .stat-label {
+      color: var(--text);
     }
 
     .stat-value {
       display: block;
       font-size: 1.25rem;
-      font-weight: 700;
+      font-weight: 600;
     }
 
     .stat-label {
       display: block;
-      margin-top: 2px;
+      margin-top: 4px;
       color: var(--muted);
-      font-size: 0.78rem;
+      font-size: 0.8125rem;
     }
 
+    /* Controls: one soft tint behind the fields, no outline of its own. */
     .controls {
       display: grid;
       grid-template-columns: minmax(260px, 1.8fr) repeat(5, minmax(130px, 0.7fr)) auto;
-      gap: 10px;
+      gap: 8px;
       align-items: end;
-      padding: 14px;
-      border: 1px solid var(--border);
+      padding: 16px;
       border-radius: var(--radius);
       background: var(--surface);
     }
@@ -259,7 +270,7 @@
 
     .field label {
       display: block;
-      margin: 0 0 5px;
+      margin: 0 0 4px;
       color: var(--muted);
       font-size: 0.75rem;
       font-weight: 600;
@@ -268,9 +279,9 @@
     .control {
       width: 100%;
       height: 40px;
-      padding: 0 11px;
+      padding: 0 12px;
       border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: var(--radius-sm);
       outline: none;
       background: var(--surface-2);
       color: var(--text);
@@ -286,7 +297,7 @@
     .menu summary:focus-visible,
     .footer-links a:focus-visible,
     .table-wrap:focus-visible {
-      outline: 2px solid var(--accent);
+      outline: 2px solid var(--ring);
       outline-offset: 2px;
     }
 
@@ -299,8 +310,8 @@
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 6px 10px;
-      margin: 12px 2px 0;
+      gap: 8px 16px;
+      margin: 16px 0 0;
     }
 
     .filter-chips[hidden] {
@@ -310,21 +321,21 @@
     .chip-list {
       display: flex;
       flex-wrap: wrap;
-      gap: 6px;
+      gap: 8px;
       margin: 0;
       padding: 0;
       list-style: none;
     }
 
+    /* Active filters are neutral: a tint and nothing else. */
     .chip {
       display: inline-flex;
       align-items: center;
-      gap: 2px;
-      padding: 1px 2px 1px 10px;
-      border: 1px solid var(--border);
+      gap: 4px;
+      padding: 0 4px 0 12px;
       border-radius: 999px;
-      background: var(--surface);
-      font-size: 0.8rem;
+      background: var(--surface-strong);
+      font-size: 0.8125rem;
       overflow-wrap: anywhere;
     }
 
@@ -343,7 +354,7 @@
     }
 
     .chip-remove:hover {
-      background: var(--surface-2);
+      background: var(--surface);
       color: var(--text);
     }
 
@@ -351,10 +362,10 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
-      margin: 14px 2px 8px;
+      gap: 16px;
+      margin: 16px 0 8px;
       color: var(--muted);
-      font-size: 0.86rem;
+      font-size: 0.875rem;
     }
 
     .menu {
@@ -364,7 +375,7 @@
     .menu summary {
       list-style: none;
       min-height: 32px;
-      font-size: 0.82rem;
+      font-size: 0.8125rem;
     }
 
     .menu summary::-webkit-details-marker {
@@ -377,22 +388,21 @@
       top: calc(100% + 4px);
       z-index: 5;
       display: grid;
-      min-width: 230px;
+      min-width: 232px;
       padding: 4px;
       border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: var(--radius);
       background: var(--surface-2);
-      box-shadow: var(--shadow);
     }
 
     .menu-item {
       display: block;
-      padding: 7px 10px;
+      padding: 8px 12px;
       border: 0;
       border-radius: 6px;
       background: none;
       color: var(--text);
-      font-size: 0.86rem;
+      font-size: 0.875rem;
       text-align: left;
       text-decoration: none;
       cursor: pointer;
@@ -403,7 +413,7 @@
     }
 
     .menu-item:focus-visible {
-      outline: 2px solid var(--accent);
+      outline: 2px solid var(--ring);
       outline-offset: -2px;
     }
 
@@ -413,32 +423,31 @@
     }
 
     mark {
-      padding: 0 1px;
-      border-radius: 2px;
+      padding: 0 2px;
+      border-radius: 4px;
       background: var(--accent-soft);
       color: inherit;
     }
 
+    /* The table sits on the page with a hairline frame and no fill of its own. */
     .table-wrap {
       overflow: auto;
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      background: var(--surface-2);
-      box-shadow: var(--shadow);
     }
 
     table {
       width: 100%;
       min-width: 1040px;
       border-collapse: collapse;
-      font-size: 0.86rem;
+      font-size: 0.875rem;
       /* digits line up column-wise, so sizes and counts can be compared by eye */
       font-variant-numeric: tabular-nums;
     }
 
     th,
     td {
-      padding: 11px 12px;
+      padding: 12px 16px;
       border-bottom: 1px solid var(--border);
       vertical-align: top;
       text-align: left;
@@ -448,31 +457,42 @@
       position: sticky;
       top: 0;
       z-index: 2;
-      background: var(--surface);
+      /* opaque, so rows scroll underneath it cleanly */
+      background: var(--bg);
       color: var(--muted);
-      font-size: 0.76rem;
-      font-weight: 700;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
       white-space: nowrap;
-      /* border-collapse borders do not travel with a sticky cell */
+      /* border-collapse borders do not travel with a sticky cell; this is a 1px line, not a shadow */
       box-shadow: inset 0 -1px 0 var(--border);
+    }
+
+    /* sizes read as numbers, so they line up on the right edge */
+    th:nth-child(5),
+    td:nth-child(5) {
+      text-align: right;
     }
 
     tbody tr:last-child td {
       border-bottom: 0;
     }
 
-    /* banding carries the eye across ten columns without adding chrome */
-    tbody tr:nth-child(even) {
-      background: color-mix(in srgb, var(--surface) 45%, transparent);
+    tbody tr:hover {
+      background: color-mix(in srgb, var(--surface) 70%, transparent);
     }
 
-    tbody tr:hover {
-      background: color-mix(in srgb, var(--accent-soft) 55%, transparent);
+    /* secondary facts sit back; names, tasks and scale carry the row */
+    td[data-label="Released"],
+    td[data-label="Category"],
+    td[data-label="License"] {
+      color: var(--muted);
     }
 
     .sort-button {
       display: inline-flex;
-      gap: 5px;
+      gap: 4px;
       align-items: center;
       padding: 0;
       border: 0;
@@ -480,17 +500,23 @@
       color: inherit;
       font: inherit;
       font-weight: inherit;
+      letter-spacing: inherit;
+      text-transform: inherit;
       cursor: pointer;
+    }
+
+    .sort-button:hover {
+      color: var(--text);
     }
 
     .sort-indicator {
       color: var(--muted);
-      font-size: 0.72rem;
+      font-size: 0.75rem;
     }
 
     .dataset-name {
       color: var(--text);
-      font-weight: 650;
+      font-weight: 600;
       text-decoration: none;
       /* repository-style names run long and have no spaces to break at */
       overflow-wrap: anywhere;
@@ -498,7 +524,7 @@
 
     .source-link {
       display: block;
-      margin-top: 2px;
+      margin-top: 4px;
       font-size: 0.75rem;
       text-decoration: none;
     }
@@ -537,36 +563,55 @@
       min-width: 100px;
     }
 
+    /* Access: a neutral pill with a small status dot. The label says it in words;
+       the dot is only an accent. */
     .pill {
       display: inline-flex;
       align-items: center;
-      padding: 2px 8px;
+      gap: 8px;
+      padding: 4px 12px;
       border-radius: 999px;
-      background: var(--surface);
-      color: var(--text);
+      background: var(--surface-strong);
+      color: var(--muted);
       font-size: 0.75rem;
       /* "Registration Required" and the long category names wrap rather than
          widening the whole table for two words */
       white-space: normal;
     }
 
+    .pill::before {
+      content: "";
+      flex: 0 0 6px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--dot, var(--muted));
+    }
+
     .pill.open {
-      background: var(--success-bg);
-      color: var(--success-fg);
+      --dot: var(--dot-open);
     }
 
     .pill.gated {
-      background: var(--warn-bg);
-      color: var(--warn-fg);
+      --dot: var(--dot-gated);
     }
 
     .pill.paid {
-      background: var(--danger-bg);
-      color: var(--danger-fg);
+      --dot: var(--dot-paid);
     }
 
+    /* Category is plain muted text, not a pill. */
     .category-pill {
-      border: 1px solid var(--border);
+      display: inline;
+      padding: 0;
+      border-radius: 0;
+      background: none;
+      color: inherit;
+      font-size: inherit;
+    }
+
+    .category-pill::before {
+      content: none;
     }
 
     .download-link {
@@ -577,7 +622,7 @@
 
     .empty,
     .error {
-      padding: 32px 18px;
+      padding: 32px 16px;
       text-align: center;
       color: var(--muted);
     }
@@ -590,9 +635,9 @@
       display: flex;
       justify-content: space-between;
       gap: 16px;
-      margin-top: 18px;
+      margin-top: 24px;
       color: var(--muted);
-      font-size: 0.8rem;
+      font-size: 0.8125rem;
     }
 
     .footer-links {
@@ -610,7 +655,7 @@
     }
 
     .empty .link-button {
-      margin-left: 6px;
+      margin-left: 8px;
     }
 
     .link-button {
@@ -629,12 +674,32 @@
     }
 
     .noscript {
-      margin: 20px auto;
+      margin: 24px auto;
       width: min(900px, calc(100% - 32px));
       padding: 16px;
-      border: 1px solid var(--border);
       border-radius: var(--radius);
       background: var(--surface);
+    }
+
+    /* Soft transitions on everything interactive. */
+    a,
+    .button,
+    .icon-button,
+    .control,
+    .stat,
+    .chip,
+    .chip-remove,
+    .menu-item,
+    .sort-button,
+    .link-button,
+    tbody tr {
+      transition: background-color .15s ease, border-color .15s ease, color .15s ease, box-shadow .15s ease;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        transition: none !important;
+      }
     }
 
     /* The wrapper needs a height for the sticky header to have anything to stick
@@ -661,12 +726,13 @@
 
     @media (max-width: 760px) {
       .page {
-        width: min(100% - 20px, 1500px);
-        padding-top: 22px;
+        width: min(100% - 24px, 1500px);
+        padding-top: 24px;
       }
 
       .topbar {
         flex-direction: column;
+        margin-bottom: 24px;
       }
 
       .header-actions {
@@ -683,7 +749,7 @@
 
       .controls {
         grid-template-columns: 1fr 1fr;
-        padding: 10px;
+        padding: 16px;
       }
 
       .search-field {
@@ -701,7 +767,7 @@
       .result-line {
         flex-direction: column;
         align-items: flex-start;
-        gap: 6px;
+        gap: 8px;
       }
 
       .menu-panel {
@@ -718,7 +784,6 @@
       .table-wrap {
         border: 0;
         background: transparent;
-        box-shadow: none;
       }
 
       table,
@@ -743,22 +808,19 @@
       }
 
       tbody tr {
-        margin: 0 0 10px;
-        padding: 6px 12px;
+        margin: 0 0 8px;
+        padding: 8px 16px;
         border: 1px solid var(--border);
         border-radius: var(--radius);
-        background: var(--surface-2);
-        box-shadow: var(--shadow);
       }
 
-      tbody tr:nth-child(even),
       tbody tr:hover {
-        background: var(--surface-2);
+        background: transparent;
       }
 
       td,
       tbody tr:last-child td {
-        padding: 6px 0;
+        padding: 8px 0;
         border-bottom: 1px solid var(--border);
       }
 
@@ -766,11 +828,16 @@
         border-bottom: 0;
       }
 
+      /* stacked cards read left to right, so sizes go back to the left edge */
+      td:nth-child(5) {
+        text-align: left;
+      }
+
       td::before {
         content: attr(data-label);
         display: block;
         color: var(--muted);
-        font-size: 0.72rem;
+        font-size: 0.75rem;
         font-weight: 600;
       }
 
@@ -821,7 +888,7 @@
       </div>
       <div class="header-actions">
         <a class="button" href="https://github.com/bilalabic/awesome-turkish-datasets" target="_blank"
-          rel="noopener noreferrer">GitHub ↗</a>
+          rel="noopener noreferrer">GitHub ↗&#xFE0E;</a>
         <button class="icon-button" id="themeToggle" type="button" aria-label="Toggle color theme"
           title="Toggle color theme">◐</button>
       </div>
@@ -903,7 +970,7 @@
             <th scope="col" id="dateTh"><button class="sort-button" type="button" data-sort="date">Released <span
                   class="sort-indicator" id="dateSortIndicator" aria-hidden="true">↓</span></button></th>
             <th scope="col" id="nameTh"><button class="sort-button" type="button" data-sort="name">Dataset <span
-                  class="sort-indicator" id="nameSortIndicator" aria-hidden="true">↕</span></button></th>
+                  class="sort-indicator" id="nameSortIndicator" aria-hidden="true">↕&#xFE0E;</span></button></th>
             <th scope="col">Category</th>
             <th scope="col">Description</th>
             <th scope="col">Size</th>
@@ -923,9 +990,9 @@
     <footer>
       <span>Every entry is checked against the dataset's own source before it is listed.</span>
       <span class="footer-links">
-        <a href="https://github.com/bilalabic/awesome-turkish-datasets/issues/new?template=suggest-dataset.yml" target="_blank" rel="noopener noreferrer">Suggest a dataset ↗</a>
-        <a href="https://github.com/bilalabic/awesome-turkish-datasets/issues/new?template=report-problem.yml" target="_blank" rel="noopener noreferrer">Report a problem ↗</a>
-        <a href="https://github.com/bilalabic/awesome-turkish-datasets/blob/main/METHODOLOGY.md" target="_blank" rel="noopener noreferrer">Methodology ↗</a>
+        <a href="https://github.com/bilalabic/awesome-turkish-datasets/issues/new?template=suggest-dataset.yml" target="_blank" rel="noopener noreferrer">Suggest a dataset ↗&#xFE0E;</a>
+        <a href="https://github.com/bilalabic/awesome-turkish-datasets/issues/new?template=report-problem.yml" target="_blank" rel="noopener noreferrer">Report a problem ↗&#xFE0E;</a>
+        <a href="https://github.com/bilalabic/awesome-turkish-datasets/blob/main/METHODOLOGY.md" target="_blank" rel="noopener noreferrer">Methodology ↗&#xFE0E;</a>
         <a href="./llms.txt">llms.txt</a>
       </span>
     </footer>
@@ -1160,7 +1227,7 @@
           a.target = '_blank';
           a.rel = 'noopener noreferrer';
           a.setAttribute('aria-label', `Source of ${item.dataset} (opens in a new tab)`);
-          a.textContent = 'Source ↗';
+          a.textContent = 'Source ↗\uFE0E';
           datasetCell.appendChild(a);
         }
         tr.appendChild(datasetCell);
@@ -1191,7 +1258,7 @@
           a.target = '_blank';
           a.rel = 'noopener noreferrer';
           a.setAttribute('aria-label', `Files for ${item.dataset} (opens in a new tab)`);
-          a.textContent = item.downloadLabel === '—' ? 'Open ↗' : `${item.downloadLabel} ↗`;
+          a.textContent = item.downloadLabel === '—' ? 'Open ↗\uFE0E' : `${item.downloadLabel} ↗\uFE0E`;
           downloadCell.appendChild(a);
         } else {
           downloadCell.textContent = '—';
@@ -1341,8 +1408,8 @@
 
       function updateSortIndicators() {
         const [key, direction] = state.sort.split('-');
-        els.dateSortIndicator.textContent = state.sort === 'date-asc' ? '↑' : state.sort === 'date-desc' ? '↓' : '↕';
-        els.nameSortIndicator.textContent = state.sort === 'name-asc' ? '↑' : state.sort === 'name-desc' ? '↓' : '↕';
+        els.dateSortIndicator.textContent = state.sort === 'date-asc' ? '↑' : state.sort === 'date-desc' ? '↓' : '↕\uFE0E';
+        els.nameSortIndicator.textContent = state.sort === 'name-asc' ? '↑' : state.sort === 'name-desc' ? '↓' : '↕\uFE0E';
 
         // aria-sort belongs only on the header that is currently sorted; size has no header button
         const headers = { date: els.dateTh, name: els.nameTh };
