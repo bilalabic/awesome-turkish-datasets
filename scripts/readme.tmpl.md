@@ -1,7 +1,11 @@
 <!-- Generated from datasets.json by scripts/build.mjs. Edit datasets.json (and scripts/readme.tmpl.md for prose), then run: node scripts/build.mjs -->
 # Awesome Turkish Datasets
 
-A curated catalog of datasets for Turkish across language, speech, vision, and multimodal AI.
+[![Datasets](https://img.shields.io/badge/datasets-{{total}}-555)](https://bilalabic.github.io/awesome-turkish-datasets/) [![Catalog licence](https://img.shields.io/badge/catalog_licence-CC_BY_4.0-555)](LICENSE)
+
+A curated, verified catalog of datasets for Turkish across language, speech, vision, and multimodal AI: text corpora, LLM instruction and benchmark sets, speech recordings, OCR and vision-language data.
+
+**[Search and filter the catalog →](https://bilalabic.github.io/awesome-turkish-datasets/)** Every dataset also has its own page with its source, licence and access conditions.
 
 Turkish datasets are scattered across dataset cards, university pages, shared-task archives and catalogue records, and lists of them tend to repeat figures long after those figures stop being true. Every entry here was checked against the dataset itself rather than against another list: the data was located and opened, its Turkish content read, and the licence taken from wherever the data is actually distributed. Anything that could not be confirmed was left out rather than filled in with a plausible value.
 
