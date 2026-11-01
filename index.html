@@ -376,6 +376,18 @@
 
     .footer-links { display: flex; flex-wrap: wrap; gap: 4px 16px; }
 
+    .link-button {
+      border: 0;
+      background: none;
+      padding: 0;
+      font: inherit;
+      color: var(--accent);
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .link-button:disabled { color: var(--muted); cursor: default; }
+
     .noscript {
       margin: 20px auto;
       width: min(900px, calc(100% - 32px));
@@ -505,7 +517,7 @@
       <span>Every entry is checked against the dataset's own source before it is listed.</span>
       <span class="footer-links">
         <a href="./datasets.json" download>Download JSON</a>
-        <a href="./datasets.csv" download>Download CSV</a>
+        <button type="button" class="link-button" id="downloadCsv" disabled>Download CSV</button>
         <a href="https://github.com/bilalabic/awesome-turkish-datasets/blob/main/METHODOLOGY.md" target="_blank" rel="noopener noreferrer">Methodology ↗</a>
       </span>
     </footer>
@@ -855,6 +867,28 @@
         if (saved === 'light' || saved === 'dark') document.documentElement.dataset.theme = saved;
       }
 
+      // The 12 fields of datasets.json, in file order.
+      const CSV_FIELDS = ['released', 'dataset', 'category', 'description', 'sourceUrl', 'downloadLabel',
+        'downloadUrl', 'size', 'scale', 'task', 'license', 'access'];
+
+      // RFC 4180 quoting; rows are separated by CRLF.
+      const csvField = value => (/[",\r\n]/.test(value) ? `"${value.replace(/"/g, '""')}"` : value);
+      function buildCsv(entries) {
+        const rows = [CSV_FIELDS, ...entries.map(entry => CSV_FIELDS.map(field => String(entry[field] ?? '')))];
+        return rows.map(row => row.map(csvField).join(',')).join('\r\n') + '\r\n';
+      }
+
+      function downloadCsv(entries) {
+        const url = URL.createObjectURL(new Blob([buildCsv(entries)], { type: 'text/csv;charset=utf-8' }));
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'datasets.csv';
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        URL.revokeObjectURL(url);
+      }
+
       async function init() {
         restoreTheme();
         els.app.hidden = false;
@@ -883,6 +917,10 @@
           if (!state.datasets.length) {
             throw new Error('The catalog file contained no entries.');
           }
+
+          const csvButton = document.getElementById('downloadCsv');
+          csvButton.addEventListener('click', () => downloadCsv(entries));
+          csvButton.disabled = false;
 
           populateFilters();
           updateStats();

@@ -4,11 +4,11 @@ Thanks for helping. Corrections and additions are welcome, and a blank field is 
 
 ## What is listed
 
-The catalog lists datasets for Turkish across language, speech, vision and multimodal AI. Each one has a Turkish portion that can be identified, a documented place to get it, and values checked against the dataset's own sources. Open, gated, registration-gated, application-gated and paid datasets are all listed, with their conditions stated. [METHODOLOGY.md](METHODOLOGY.md) has the full rules.
+The catalog lists datasets for Turkish across language, speech, vision and multimodal AI. Each one has a Turkish portion that can be identified, a documented place to get it, and values checked against the dataset's own sources. Open, gated, registration-gated, application-gated and paid datasets are all listed, with their conditions stated. [METHODOLOGY.md](../METHODOLOGY.md) has the full rules.
 
 ## Two ways to contribute
 
-**Open an issue.** No Git needed. Use the forms to [suggest a dataset](../../issues/new?template=suggest-dataset.yml) or [report a problem](../../issues/new?template=report-problem.yml) with an entry.
+**Open an issue.** No Git needed. Use the forms to [suggest a dataset](https://github.com/bilalabic/awesome-turkish-datasets/issues/new?template=suggest-dataset.yml) or [report a problem](https://github.com/bilalabic/awesome-turkish-datasets/issues/new?template=report-problem.yml) with an entry.
 
 **Send a pull request.** Edit only `datasets.json`, plus `scripts/readme.tmpl.md` if you are changing prose. Do not edit `README.md` by hand. Then run:
 
@@ -21,7 +21,7 @@ The first regenerates `README.md` from `datasets.json`. The second checks the en
 
 ## Entry fields
 
-[How to read an entry](README.md#how-to-read-an-entry) in the README explains the layout. In short:
+[How to read an entry](../README.md#how-to-read-an-entry) in the README explains the layout. In short:
 
 - **Release date:** the earliest verifiable public release. For a dataset first published on Hugging Face, that is when its repository was created. The 2022-03-02 date Hugging Face shows for migrated datasets is not a release date.
 - **Size:** the size of the data files, in decimal units (KB, MB, GB).

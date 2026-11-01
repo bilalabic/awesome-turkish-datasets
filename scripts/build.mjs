@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 // SPDX-License-Identifier: Apache-2.0
 //
-// Generates README.md and datasets.csv from datasets.json and scripts/readme.tmpl.md.
+// Generates README.md from datasets.json and scripts/readme.tmpl.md.
 //
-//   node scripts/build.mjs           write README.md and datasets.csv
-//   node scripts/build.mjs --check   exit 1 if either file differs from the generated output
+//   node scripts/build.mjs           write README.md
+//   node scripts/build.mjs --check   exit 1 if README.md differs from the generated output
 //
 // No dependencies.
 import { readFileSync, writeFileSync } from 'node:fs';
@@ -46,13 +46,6 @@ export function renderReadme(template, data) {
   });
 }
 
-// RFC 4180 quoting; rows end with LF.
-const csvField = v => (/[",\r\n]/.test(v) ? `"${v.replace(/"/g, '""')}"` : v);
-export function renderCsv(data) {
-  const rows = [KEYS, ...data.map(e => KEYS.map(k => e[k] ?? ''))];
-  return rows.map(r => r.map(csvField).join(',')).join('\n') + '\n';
-}
-
 // Runs only when executed directly, so check.mjs can import the helpers above.
 if (import.meta.filename === resolve(process.argv[1] ?? '')) {
   const args = process.argv.slice(2);
@@ -60,21 +53,20 @@ if (import.meta.filename === resolve(process.argv[1] ?? '')) {
   const root = resolve(import.meta.dirname, '..');
   const data = JSON.parse(readFileSync(join(root, 'datasets.json'), 'utf8'));
   const outputs = {
-    'README.md': renderReadme(readFileSync(join(root, 'scripts', 'readme.tmpl.md'), 'utf8'), data),
-    'datasets.csv': renderCsv(data)
+    'README.md': renderReadme(readFileSync(join(root, 'scripts', 'readme.tmpl.md'), 'utf8'), data)
   };
   if (args.includes('--check')) {
     const stale = Object.entries(outputs).filter(([f, text]) => {
       try { return readFileSync(join(root, f), 'utf8') !== text; } catch { return true; }
     }).map(([f]) => f);
     if (stale.length) {
-      console.error('README.md or datasets.csv is out of date: run node scripts/build.mjs');
+      console.error('README.md is out of date: run node scripts/build.mjs');
       console.error(`Differs from generated output: ${stale.join(', ')}`);
       process.exit(1);
     }
-    console.log(`README.md and datasets.csv are up to date (${data.length} entries).`);
+    console.log(`README.md is up to date (${data.length} entries).`);
   } else {
     for (const [f, text] of Object.entries(outputs)) writeFileSync(join(root, f), text, { encoding: 'utf8' });
-    console.log(`Wrote README.md and datasets.csv (${data.length} entries).`);
+    console.log(`Wrote README.md (${data.length} entries).`);
   }
 }
