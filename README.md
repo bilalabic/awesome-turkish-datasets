@@ -6,26 +6,34 @@ Turkish datasets are scattered across dataset cards, university pages, shared-ta
 
 Paid, gated and registration-gated datasets are listed alongside open ones, with their conditions stated. What is left out: releases whose Turkish portion cannot be separated from the other languages, resources that turn out to be a model, a tool or a paper rather than data, and datasets with no obtainable copy anywhere. [METHODOLOGY.md](METHODOLOGY.md) has the full rules.
 
-**280 datasets** — 215 text/NLP · 21 speech · 44 vision/multimodal
+**325 datasets** — 241 text/NLP · 32 speech · 52 vision/multimodal
 
 Last reviewed August 2026 · [searchable version](https://bilalabic.github.io/awesome-turkish-datasets/) with filters by category, task and access
 
 ## Contents
 
-- [Text, NLP & LLM](#text-nlp--llm) (215)
-- [Speech & Audio](#speech--audio) (21)
-- [Vision, OCR & Multimodal](#vision-ocr--multimodal) (44)
+- [Text, NLP & LLM](#text-nlp--llm) (241)
+- [Speech & Audio](#speech--audio) (32)
+- [Vision, OCR & Multimodal](#vision-ocr--multimodal) (52)
 
 Each entry reads **name** — description, then `release date · scale · size · task · licence · access`. A fact that is missing could not be verified. [How to read an entry](#how-to-read-an-entry) explains the rest.
 
 ## Text, NLP & LLM
 
+- **[LoReHLT Turkish Representative Language Pack](https://catalog.ldc.upenn.edu/LDC2026T10)** — Monolingual and parallel Turkish text with audio  
+  2026-10-15 · ~422M Turkish words; ~25 hours of audio · Machine Translation; Named Entity Recognition · LDC User Agreement for Non-Members · Paid
+- **[Guardrail-TR](https://huggingface.co/datasets/ytu-ce-cosmos/guardrail-tr)** — Translated and adapted prompt-safety classification data  
+  2026-07-19 · 405,270 prompts · 106.3 MB · LLM Safety Classification · Open · [Files](https://huggingface.co/datasets/ytu-ce-cosmos/guardrail-tr/tree/main)
 - **[Turkish Conversation Prompt-Injection Dataset](https://huggingface.co/datasets/3nesdeniz/turkish-conversation-prompt-injection)** — Synthetic Turkish conversations for prompt-injection detection  
   2026-07-10 · 750 rows · 44.1 KB · LLM Safety Classification · CC BY 4.0 · Open · [Files](https://huggingface.co/datasets/3nesdeniz/turkish-conversation-prompt-injection/tree/main)
 - **[Turkish-Python-instruction](https://huggingface.co/datasets/bysismo/Turkish-Python-instruction)** — Synthetic Python coding instructions  
   2026-07 · 4,876 rows · 2.8 MB · Instruction Tuning; Code Generation · CC BY-NC 4.0 · Open · [Files](https://huggingface.co/datasets/bysismo/Turkish-Python-instruction/tree/main)
+- **[ABSA-TR](https://huggingface.co/datasets/ytu-ce-cosmos/absa-tr)** — Review sentences with LLM-annotated aspect sentiment  
+  2026-06-13 · 16,031 sentences · 5.2 MB · Sentiment Analysis · CC BY-SA 4.0 · Open · [Files](https://huggingface.co/datasets/ytu-ce-cosmos/absa-tr/tree/main)
 - **[LORELEI Multiway Translated Text](https://catalog.ldc.upenn.edu/LDC2026T06)** — English text translated into 24 languages  
   2026-06 · ~100,000 English source words · Machine Translation · LDC User Agreement for Non-Members · Paid
+- **[BLM-CausT](https://zenodo.org/records/20321027)** — Synthetic causative-alternation puzzles from Turkish treebank sentences  
+  2026-05-21 · 16,000 instances · 2.4 MB (compressed archive) · Benchmarking · Open
 - **[Bilge-Turkish-CoT-50K](https://huggingface.co/datasets/bugrabilge/Bilge-Turkish-CoT-50K)** — Chain-of-thought reasoning examples, 50K samples  
   2026-05 · 50K examples · 815.2 MB · Question Answering; Reasoning; Text Generation · Gemma Terms of Use · Open · [Files](https://huggingface.co/datasets/bugrabilge/Bilge-Turkish-CoT-50K/tree/main)
 - **[Hermes Function Calling Türkçe](https://huggingface.co/datasets/Tuguberk/turkish-hermes-function-calling)** — Machine-translated function-calling and tool-use examples  
@@ -34,10 +42,18 @@ Each entry reads **name** — description, then `release date · scale · size �
   2026-05 · 103,923 Turkish rows · 15.7 MB · Named Entity Recognition · CC BY 4.0 · Open · [Files](https://huggingface.co/datasets/BTX24/turkish-privacy-pii-ner/tree/main)
 - **[Türkçe Prompt Injection & Jailbreak Veri Seti](https://huggingface.co/datasets/OnerAYTAS/Turkish_prompt_injection_jailbreak_dataset)** — Machine-translated compilation of prompt-injection and jailbreak datasets  
   2026-05 · approximately 20,500 Turkish prompts · 27.3 MB · Benchmarking · Open · [Files](https://huggingface.co/datasets/OnerAYTAS/Turkish_prompt_injection_jailbreak_dataset/tree/main)
+- **[Syn-TurnTurk](https://huggingface.co/datasets/tugrulbayrak/Syn-TurnTurk)** — Synthetic Qwen-generated Turkish dialogues for turn-taking  
+  2026-04-12 · 1,625 dialogues · 2.4 MB · Dialogue Generation · Open · [Files](https://huggingface.co/datasets/tugrulbayrak/Syn-TurnTurk/tree/main)
 - **[XL-SafetyBench](https://huggingface.co/datasets/AIM-Intelligence/XL-SafetyBench)** — Adversarial prompts for cross-cultural LLM safety  
   2026-04 · 550 Turkish rows · 14.6 MB · Benchmarking · CC BY 4.0 · Open · [Files](https://huggingface.co/datasets/AIM-Intelligence/XL-SafetyBench/tree/main)
+- **[GNACT](https://huggingface.co/datasets/boun-tabilab/turkish_parliamentary_data)** — Century of parliamentary transcripts, OCR-extracted text  
+  2026-03-18 · 26,648 session transcripts; 1,936,297 pages · 7.2 GB · Language Modeling · CC BY-NC-SA 4.0 · Open · [Files](https://huggingface.co/datasets/boun-tabilab/turkish_parliamentary_data/tree/main)
+- **[TurkishLegalBench](https://zenodo.org/records/20680163)** — Seven Turkish legal NLP tasks from high-court documents  
+  2026-02-09 · 38,009 court documents · 252.1 MB (compressed archive) · Benchmarking · CC BY-NC-SA 4.0 · Open
 - **[diyalog-dataset](https://huggingface.co/datasets/alibayram/diyalog-dataset)** — Synthetic multi-turn dialogues from QA pairs  
   2026-02 · 1,330 Turkish rows · 5.6 MB · Dialogue Generation · Open · [Files](https://huggingface.co/datasets/alibayram/diyalog-dataset/tree/main)
+- **[Court of Cassation Caselaw Dataset](https://huggingface.co/datasets/newmindai/caselaw-retrieval)** — Yargıtay decisions with catchword retrieval queries  
+  2026-01-16 · 1,381 decisions; 1,386 queries · 2.4 MB · Information Retrieval · CC BY 4.0 · Open · [Files](https://huggingface.co/datasets/newmindai/caselaw-retrieval/tree/main)
 - **[FineTranslations](https://huggingface.co/datasets/HuggingFaceFW/finetranslations)** — Machine-translated FineWeb 2 parallel text, 500+ languages  
   2026-01 · 58,171,145 Turkish rows · 436.3 GB · Machine Translation · ODC Attribution · Open · [Files](https://huggingface.co/datasets/HuggingFaceFW/finetranslations/tree/main)
 - **[ottoman-place-names-gazetteer](https://huggingface.co/datasets/OttomanNLP/ottoman-place-names-gazetteer)** — Ottoman-to-modern Turkish place-name transliterations  
@@ -56,10 +72,20 @@ Each entry reads **name** — description, then `release date · scale · size �
   2025-10 · 546 Turkish rows · 405.6 KB · Benchmarking · Apache-2.0 · Open · [Files](https://huggingface.co/datasets/ytu-ce-cosmos/gpqa-extended_tr/tree/main)
 - **[Türkçe Genel Kültür Soruları](https://huggingface.co/datasets/nisancoskun/turkish_general_knowledge_qa)** — Synthetic question-answering pairs via Llama-4  
   2025-10 · 1,000 question-answer pairs · 460.7 KB · Instruction Tuning · MIT · Open · [Files](https://huggingface.co/datasets/nisancoskun/turkish_general_knowledge_qa/tree/main)
+- **[TokSuite Turkish](https://huggingface.co/datasets/toksuite/toksuite_turkish)** — Tokenizer-robustness multiple-choice questions with perturbations  
+  2025-09-14 · 621 Turkish rows · 654.9 KB · Benchmarking · MIT · Open · [Files](https://huggingface.co/datasets/toksuite/toksuite_turkish/tree/main)
 - **[FinePDFs](https://huggingface.co/datasets/HuggingFaceFW/finepdfs)** — Text extracted from PDF documents  
   2025-09 · 1,700,570 Turkish rows · 27.3 GB (Turkish subset) · Language Modeling · ODC Attribution · Open · [Files](https://huggingface.co/datasets/HuggingFaceFW/finepdfs/tree/main)
+- **[BILGE-Wiki-Tr-Plus](https://huggingface.co/datasets/BILGEM-AI/BILGE-Wiki-Tr-Plus)** — Turkish Wikipedia with model-generated topic and quality labels  
+  2025-08-26 · 618,557 rows · 1.1 GB · Language Modeling · Open · [Files](https://huggingface.co/datasets/BILGEM-AI/BILGE-Wiki-Tr-Plus/tree/main)
 - **[TURSpider](https://huggingface.co/datasets/AliBugra/TURSpider)** — Human-translated Spider Text-to-SQL dataset  
   2025-08 · 8,659 training pairs; 1,034 development pairs · 2.1 MB · Text-to-SQL · Open · [Files](https://huggingface.co/datasets/AliBugra/TURSpider/tree/main)
+- **[fineweb-edu-translated (Turkish)](https://huggingface.co/datasets/Helsinki-NLP/fineweb-edu-translated)** — Machine-translated FineWeb-Edu documents (OPUS-MT, HPLT-MT)  
+  2025-07-24 · 36,704,000 Turkish rows · 113.5 GB (Turkish subset) · Language Modeling · ODC Attribution · Open · [Files](https://huggingface.co/datasets/Helsinki-NLP/fineweb-edu-translated/tree/main)
+- **[RAGTruth-TR](https://huggingface.co/datasets/newmindai/RAGTruth-TR)** — Translated RAGTruth hallucination-detection benchmark  
+  2025-06-18 · 17,790 rows · 17.1 MB · Benchmarking · MIT · Open · [Files](https://huggingface.co/datasets/newmindai/RAGTruth-TR/tree/main)
+- **[TurBLiMP](https://github.com/ezgibasar/TurBLiMP)** — Minimal pairs for Turkish grammatical phenomena  
+  2025-06-16 · 16,000 minimal pairs · ~ 1.1 MB (GitHub repo) · Benchmarking · CC BY 4.0 · Open · [Files](https://github.com/ezgibasar/TurBLiMP/tree/main/data)
 - **[turkish-math-186k](https://huggingface.co/datasets/ituperceptron/turkish-math-186k)** — Machine-translated NuminaMath math problems  
   2025-05 · 185,937 Turkish rows · 130.2 MB · Instruction Tuning · Open · [Files](https://huggingface.co/datasets/ituperceptron/turkish-math-186k/tree/main)
 - **[THY-SA](https://huggingface.co/datasets/trmteb/thy_sa)** — Turkish Airlines tweets with sentiment labels  
@@ -70,6 +96,12 @@ Each entry reads **name** — description, then `release date · scale · size �
   2025-04 · 1,085 Turkish rows · 311.0 KB · Instruction Tuning · Open · [Files](https://huggingface.co/datasets/erayalp/medium_turkish_math_reasoning/tree/main)
 - **[The Xi’an Multi-Language Learner Corpus](https://catalog.ldc.upenn.edu/LDC2025T03)** — Multilingual learner essays by Chinese students  
   2025-03 · 22 Turkish texts; 3,719 Turkish tokens · Language Modeling · LDC User Agreement for Non-Members · Paid
+- **[TUMLU-mini (Turkish)](https://huggingface.co/datasets/jafarisbarov/TUMLU-mini)** — Native school-exam questions in Turkic languages  
+  2025-02-18 · 945 Turkish rows · 262.3 KB (Turkish subset) · Multiple-Choice Question Answering · CC BY 4.0 · Open · [Files](https://huggingface.co/datasets/jafarisbarov/TUMLU-mini/tree/main)
+- **[FineWeb2-HQ (Turkish)](https://huggingface.co/datasets/epfml/FineWeb2-HQ)** — Top-10% quality-filtered subset of FineWeb 2  
+  2025-02-17 · 8,578,808 Turkish rows · 107.3 GB (Turkish subset) · Language Modeling · ODC Attribution · Open · [Files](https://huggingface.co/datasets/epfml/FineWeb2-HQ/tree/main)
+- **[M-ABSA (Turkish)](https://huggingface.co/datasets/Multilingual-NLP/M-ABSA)** — Machine-translated aspect-sentiment triplets with human review  
+  2025-02-13 · 14,776 Turkish rows · 2.6 MB (Turkish subset) · Sentiment Analysis · Open · [Files](https://huggingface.co/datasets/Multilingual-NLP/M-ABSA/tree/main)
 - **[ThinkingData-200K-Turkish](https://huggingface.co/datasets/erythropygia/ThinkingData-200K-Turkish)** — Machine-translated reasoning and instruction examples  
   2025-02 · 208,640 Turkish rows · 0.98 GB · Instruction Tuning · Open · [Files](https://huggingface.co/datasets/erythropygia/ThinkingData-200K-Turkish/tree/main)
 - **[turkish_medical_reasoning](https://huggingface.co/datasets/ituperceptron/turkish_medical_reasoning)** — Machine-translated medical reasoning problems with DeepSeek-R1 traces  
@@ -84,6 +116,8 @@ Each entry reads **name** — description, then `release date · scale · size �
   2024-12 · 3,000 Turkish rows · 4.2 MB · Instruction Tuning · Apache-2.0 · Open · [Files](https://huggingface.co/datasets/SoAp9035/everyday-conversations-tur/tree/main)
 - **[FineWeb 2](https://huggingface.co/datasets/HuggingFaceFW/fineweb-2)** — Web pretraining data across 1000+ languages  
   2024-12 · 95.1M Turkish documents; 41.9B Turkish words · 134.8 GB (Turkish subset) · Language Modeling · ODC Attribution · Open · [Files](https://huggingface.co/datasets/HuggingFaceFW/fineweb-2/tree/main)
+- **[INCLUDE (Turkish)](https://huggingface.co/datasets/CohereLabs/include-base-44)** — Regional exam questions across 44 languages  
+  2024-11-29 · 568 Turkish rows · 149.9 KB (Turkish subset) · Multiple-Choice Question Answering · Apache-2.0 · Open · [Files](https://huggingface.co/datasets/CohereLabs/include-base-44/tree/main)
 - **[InstructPapers-TR Dataset](https://huggingface.co/datasets/selimc/InstructPapers-TR)** — Synthetic QA pairs from DergiPark papers  
   2024-11 · 11,550 Turkish rows · 9.9 MB · Instruction Tuning · Apache-2.0 · Open · [Files](https://huggingface.co/datasets/selimc/InstructPapers-TR/tree/main)
 - **[MedTurkQuAD](https://huggingface.co/datasets/incidelen/MedTurkQuAD)** — Medical-domain question-answering pairs, Turkish  
@@ -92,6 +126,8 @@ Each entry reads **name** — description, then `release date · scale · size �
   2024-11 · 1,388,533 Turkish rows · 4.8 GB · Language Modeling · CC BY-SA 4.0 · Open · [Files](https://huggingface.co/datasets/turkish-nlp-suite/OzenliDerlem/tree/main)
 - **[orpo-dpo-mix-TR-20k](https://huggingface.co/datasets/selimc/orpo-dpo-mix-TR-20k)** — Translated ORPO-DPO preference-pair mix  
   2024-11 · 19,889 Turkish rows · 70.9 MB · Direct Preference Optimization · Apache-2.0 · Open · [Files](https://huggingface.co/datasets/selimc/orpo-dpo-mix-TR-20k/tree/main)
+- **[m-ArenaHard (Turkish)](https://huggingface.co/datasets/CohereLabs/m-ArenaHard)** — Machine-translated Arena-Hard-Auto prompts, 23 languages  
+  2024-10-23 · 500 Turkish rows · 163.4 KB (Turkish subset) · Benchmarking · Apache-2.0 · Open · [Files](https://huggingface.co/datasets/CohereLabs/m-ArenaHard/tree/main)
 - **[AkademikDerlem](https://huggingface.co/datasets/turkish-nlp-suite/AkademikDerlem)** — Academic publication text corpus  
   2024-10 · 668,109 Turkish rows · 4.0 GB · Language Modeling · CC BY-SA 4.0 · Open · [Files](https://huggingface.co/datasets/turkish-nlp-suite/AkademikDerlem/tree/main)
 - **[HPLT2.0](https://hplt-project.org/datasets/v2.0)** — Web-crawled multilingual text corpus  
@@ -118,6 +154,8 @@ Each entry reads **name** — description, then `release date · scale · size �
   2024-07 · 87,328 Turkish rows · 34.9 MB · Sentiment Analysis · CC BY-SA 4.0 · Open · [Files](https://huggingface.co/datasets/turkish-nlp-suite/BuyukSinema/tree/main)
 - **[InstructTurca](https://huggingface.co/datasets/turkish-nlp-suite/InstrucTurca)** — Machine-translated instructions compiled from nine English datasets  
   2024-07 · ~2.58M examples · 4.2 GB · Instruction Tuning · Open · [Files](https://huggingface.co/datasets/turkish-nlp-suite/InstrucTurca/tree/main)
+- **[LlamaTurk-Instruction-Set](https://huggingface.co/datasets/metunlp/LlamaTurk-Instruction-Set)** — Instruction-tuning set from the LlamaTurk study  
+  2024-05-13 · 52,002 rows · 22.6 MB · Instruction Tuning · CC BY-NC-SA 4.0 · Open · [Files](https://huggingface.co/datasets/metunlp/LlamaTurk-Instruction-Set/tree/main)
 - **[SentiTurca](https://huggingface.co/datasets/turkish-nlp-suite/SentiTurca)** — Sentiment benchmark built from MusteriYorumlari, BuyukSinema, TurkishHateMap  
   2024-05 · 234,345 labeled rows · 70.4 MB · Sentiment Analysis; Hate Speech Classification · CC BY-SA 4.0 · Open · [Files](https://huggingface.co/datasets/turkish-nlp-suite/SentiTurca/tree/main)
 - **[alpaca-turkish-combined](https://huggingface.co/datasets/cenfis/alpaca-turkish-combined)** — Merged Alpaca-style instruction datasets, Turkish  
@@ -182,6 +220,8 @@ Each entry reads **name** — description, then `release date · scale · size �
   2023-12 · 9,499 Turkish rows · 25.3 MB · Instruction Tuning · Open · [Files](https://huggingface.co/datasets/beratcmn/no_robots_turkish/tree/main)
 - **[sinefil-movie-revs](https://huggingface.co/datasets/turkish-nlp-suite/sinefil-movie-reviews)** — Audience movie reviews for sentiment analysis  
   2023-12 · 42,914 Turkish rows · 15.8 MB · Sentiment Analysis · CC BY-SA 4.0 · Open · [Files](https://huggingface.co/datasets/turkish-nlp-suite/sinefil-movie-reviews/tree/main)
+- **[Wikipedia (Turkish)](https://huggingface.co/datasets/wikimedia/wikipedia)** — Parsed Wikipedia articles from the 20231101 Turkish dump  
+  2023-11-20 · 534,988 Turkish rows · 552.9 MB (Turkish subset) · Language Modeling · CC BY-SA 3.0 / GFDL · Open · [Files](https://huggingface.co/datasets/wikimedia/wikipedia/tree/main)
 - **[Havadis](https://huggingface.co/datasets/turkish-nlp-suite/Havadis)** — Turkish news articles from online newspapers  
   2023-11 · 744,868 Turkish rows · 2.9 GB · Language Modeling · CC BY-SA 4.0 · Open · [Files](https://huggingface.co/datasets/turkish-nlp-suite/Havadis/tree/main)
 - **[Finance](https://huggingface.co/datasets/umarigan/turkiye_finance_qa)**  
@@ -194,12 +234,16 @@ Each entry reads **name** — description, then `release date · scale · size �
   2023-10 · 13,133 Turkish words/expressions, 17,015 senses · Lexical Resource · ELRA VAR · Paid
 - **[Parallel Corpora & Domains (bilingual and multilingual)](https://catalog.elra.info/en-us/repository/browse/ELRA-W0336/)** — Bilingual segments across specialized domains  
   2023-10 · 10M segments; 90M tokens (all languages) · Machine Translation · ELRA VAR · Paid
+- **[Belebele (Turkish)](https://huggingface.co/datasets/facebook/belebele)** — Multiple-choice reading comprehension, 122 language variants  
+  2023-09-01 · 900 Turkish rows · 1.1 MB (Turkish subset) · Multiple-Choice Question Answering · CC BY-SA 4.0 · Open · [Files](https://huggingface.co/datasets/facebook/belebele/tree/main)
 - **[BeyazPerde All Movie Reviews](https://huggingface.co/datasets/turkish-nlp-suite/beyazperde-all-movie-reviews)** — Movie reviews for sentiment classification  
   2023-09 · 44,549 Turkish rows · 22.9 MB · Sentiment Analysis · CC BY-SA 4.0 · Open · [Files](https://huggingface.co/datasets/turkish-nlp-suite/beyazperde-all-movie-reviews/tree/main)
 - **[Vitamins and Supplements Customer Reviews Dataset](https://huggingface.co/datasets/turkish-nlp-suite/vitamins-supplements-reviews)** — E-commerce customer reviews for sentiment  
   2023-09 · 238,590 Turkish rows · 43.6 MB · Sentiment Analysis · CC BY-SA 4.0 · Open · [Files](https://huggingface.co/datasets/turkish-nlp-suite/vitamins-supplements-reviews/tree/main)
 - **[Vitamins and Supplements NER Dataset](https://huggingface.co/datasets/turkish-nlp-suite/vitamins-supplements-NER)** — Named entities in e-commerce and medical reviews  
   2023-09 · 2,472 Turkish rows · 1.8 MB · Named Entity Recognition · CC BY-SA 4.0 · Open · [Files](https://huggingface.co/datasets/turkish-nlp-suite/vitamins-supplements-NER/tree/main)
+- **[SIB-200 (Turkish)](https://huggingface.co/datasets/Davlan/sib200)** — Topic classification of FLORES-200 sentences, 200+ languages  
+  2023-09 · 1,004 Turkish rows · 162.9 KB (Turkish subset) · Text Classification · CC BY-SA 4.0 · Open · [Files](https://huggingface.co/datasets/Davlan/sib200/tree/main)
 - **[Turkish-Alpaca](https://huggingface.co/datasets/TFLai/Turkish-Alpaca)** — Turkish translation of Stanford Alpaca  
   2023-08 · 51,914 rows · 24.2 MB · Instruction Tuning · Open · [Files](https://huggingface.co/datasets/TFLai/Turkish-Alpaca/tree/main)
 - **[SQuAD-TR](https://huggingface.co/datasets/boun-tabi/squad_tr)** — Machine-translated SQuAD 2.0 in Turkish  
@@ -218,6 +262,8 @@ Each entry reads **name** — description, then `release date · scale · size �
   2023-04 · 88,838 total; 37 Turkish messages · 41.6 MB · Instruction Tuning · Apache-2.0 · Open · [Files](https://huggingface.co/datasets/OpenAssistant/oasst1/tree/main)
 - **[OSCAR Turkish](https://huggingface.co/datasets/oscar-corpus/OSCAR-2301)** — Multilingual web corpus filtered from CommonCrawl  
   2023-03 · 26,654,330 Turkish documents; 8,290,890,087 words · 31.0 GB (Turkish subset) · Language Modeling · Gated · [Files](https://huggingface.co/datasets/oscar-corpus/OSCAR-2301/tree/main)
+- **[turkish-constitutional-court](https://huggingface.co/datasets/KocLab-Bilkent/turkish-constitutional-court)** — Constitutional Court decisions labeled violation or no violation  
+  2023-02-18 · 1,290 court decisions · 10.8 MB · Text Classification · Open · [Files](https://huggingface.co/datasets/KocLab-Bilkent/turkish-constitutional-court/tree/main)
 - **[merve/turkish_instructions](https://huggingface.co/datasets/merve/turkish_instructions)**  
   2023 · 51,563 rows · 21.2 MB · Instruction Tuning · Apache-2.0 · Open · [Files](https://huggingface.co/datasets/merve/turkish_instructions/tree/main)
 - **[A Twitter offensive language data set with context](https://github.com/boun-tabi/CovidOffensiveLanguageUltimateDatasets)** — Tweet-reply ID pairs labeled for offensive language  
@@ -232,6 +278,8 @@ Each entry reads **name** — description, then `release date · scale · size �
   2022-12 · 5,432 sentences · ~ 1.7 MB (GitHub repo) · Intent and Slot Classification · CC BY-SA 4.0 · Open
 - **[A small code-switching corpus of Turkish-English](https://github.com/zeynepyirmibes/code-switching-tr-en)**  
   2022-11 · 390 sentences · 99 KB · Language Identification · Open
+- **[Turkish-WikiNER](https://huggingface.co/datasets/turkish-nlp-suite/turkish-wikiNER)** — Wikipedia sentences re-annotated for NER, 18 labels  
+  2022-10-30 · 19,967 sentences · 2.2 MB · Named Entity Recognition · CC BY-SA 4.0 · Open · [Files](https://huggingface.co/datasets/turkish-nlp-suite/turkish-wikiNER/tree/main)
 - **[Turkish Offensive Language Detection Dataset](https://huggingface.co/datasets/Toygar/turkish-offensive-language-detection)** — OffensEval 2020 merged with additional offensive tweets  
   2022-07 · 53,005 labeled tweets · 7.2 MB · Text Classification · Open · [Files](https://huggingface.co/datasets/Toygar/turkish-offensive-language-detection/tree/main)
 - **[trseg-41](https://github.com/alisafaya/mukayese)** — Sentence-segmentation benchmark from abstracts, news and tweets  
@@ -252,12 +300,16 @@ Each entry reads **name** — description, then `release date · scale · size �
   2022 · 168,748 tokens; 123 speakers · Language Resource / Modeling · Application Required
 - **[Large-Scale Hate Speech Datasets](https://github.com/avaapm/hatespeech)** — Cross-domain Turkish-English hate-speech detection data  
   2022 · 100,000 Turkish tweets (v1); 60,310 (v2) · 16.4 MB (all languages) · Text Classification · CC BY-NC-SA 4.0 · Open
+- **[TR-News](https://huggingface.co/datasets/batubayk/TR-News)** — News articles with abstracts for summarization  
+  2021-08-01 · 307,562 articles · 759.6 MB · Summarization · Open · [Files](https://huggingface.co/datasets/batubayk/TR-News/tree/main)
 - **[trnews-64](https://zenodo.org/records/5180654)** — Turkish news text from TS Timeline Corpus  
   2021-08 · 64M words · 123.4 MB · Language Modeling · CC BY 4.0 · Open
 - **[trwiki-67](https://zenodo.org/records/5213891)** — Turkish Wikipedia articles from a 2021 dump  
   2021-08 · 67M words · 331.8 MB · Language Modeling · Open
 - **[hunspell-tr](https://github.com/tdd-ai/hunspell-tr)** — Turkish spellchecking word list  
   2021-07 · 75,909 dictionary entries · 38.4 MB · Lexical Resource · MPL-2.0 · Open
+- **[XL-Sum (Turkish)](https://huggingface.co/datasets/csebuetnlp/xlsum)** — Multilingual BBC article-summary pairs  
+  2021-06-29 · 33,970 Turkish rows · 31.5 MB (Turkish subset) · Summarization · CC BY-NC-SA 4.0 · Open · [Files](https://huggingface.co/datasets/csebuetnlp/xlsum/tree/main)
 - **[ParlaMint 2.1 (Turkish)](https://www.clarin.si/repository/xmlui/handle/11356/1432)** — Turkish parliamentary debate transcripts  
   2021-06 · 3,774,204 utterances (all languages) · 244.35 MB (Turkish subset) · Language Modeling · CC BY 4.0 · Open · [Files](https://www.clarin.si/repository/xmlui/bitstream/handle/11356/1432/ParlaMint-TR.tgz)
 - **[Gender-Bias-in-TR-to-EN-MT-Models](https://github.com/NurIren/Gender-Bias-in-TR-to-EN-MT-Models)** — Template-based Turkish sentences with machine translations  
@@ -455,8 +507,14 @@ Each entry reads **name** — description, then `release date · scale · size �
 
 ## Speech & Audio
 
+- **[Antalia Turkish Single-Speaker Scripted Speech](https://huggingface.co/datasets/cloud0day3/antalia-voice-corpus)** — Studio-recorded single-speaker Turkish read speech, consented  
+  2026-09-14 · 1,073 clips; 5.0 hours; 1 speaker · 867.2 MB · Text-to-Speech · CC BY 4.0 · Open · [Files](https://huggingface.co/datasets/cloud0day3/antalia-voice-corpus/tree/main)
 - **[Common Voice Scripted Speech 26.0 - Turkish](https://mozilladatacollective.com/datasets/cmqinosfq00x4nr07gnk0rdf9)**  
   2026-06 · 126,723 clips; 135.64 hours (130.1 validated); 1,829 speakers · 2.99 GB · Automatic Speech Recognition · CC0 1.0 · Registration Required
+- **[YODAS v3](https://huggingface.co/datasets/espnet/yodas3)** — Weakly labeled multilingual YouTube speech, 48 kHz stereo  
+  2026-06 · 38,494 Turkish videos · 478.3 GB (Turkish subset) · Automatic Speech Recognition · CC BY 3.0 · Open · [Files](https://huggingface.co/datasets/espnet/yodas3/tree/main/data/tr)
+- **[WorldSpeech](https://huggingface.co/datasets/disco-eth/WorldSpeech)** — Human-transcribed multilingual ASR speech, 127 language variants  
+  2026-04 · 239,654 Turkish rows; 1,007.6 hours · 25.8 GB (Turkish subset) · Automatic Speech Recognition · CC BY-NC 4.0 · Open · [Files](https://huggingface.co/datasets/disco-eth/WorldSpeech/tree/main/data/tr_tr)
 - **[tr-combined](https://huggingface.co/datasets/Codyfederer/tr-combined)** — Merged speech audio from 894 sources  
   2025-10 · 221,531 segments; 2,158 speakers · 85.2 GB · Speech / Audio · CC BY 4.0 · Gated · [Files](https://huggingface.co/datasets/Codyfederer/tr-combined/tree/main)
 - **[tr-full-dataset](https://huggingface.co/datasets/Codyfederer/tr-full-dataset)** — Merged speech audio from 88 sources  
@@ -469,10 +527,26 @@ Each entry reads **name** — description, then `release date · scale · size �
   2024-12 · 27,096 Turkish rows · 1.2 GB · Automatic Speech Recognition · Open · [Files](https://huggingface.co/datasets/ysdede/khanacademy-turkish/tree/main)
 - **[khanacademy-turkish-math](https://huggingface.co/datasets/ysdede/khanacademy-turkish-math)** — Turkish Khan Academy math audio transcriptions  
   2024-12 · 42,836 rows · 1.8 GB · Speech / Audio · Open · [Files](https://huggingface.co/datasets/ysdede/khanacademy-turkish-math/tree/main)
+- **[SIB-Fleurs](https://huggingface.co/datasets/WueNLP/sib-fleurs)** — SIB-200 topic classification aligned with FLEURS speech  
+  2024-12 · 923 Turkish rows · 1.35 GB (Turkish subset) · Text Classification · CC BY-SA 4.0 · Open · [Files](https://huggingface.co/datasets/WueNLP/sib-fleurs/tree/main/data/tur_Latn)
+- **[2M-Belebele](https://huggingface.co/datasets/facebook/2M-Belebele)** — Speech Belebele comprehension recordings in 74 languages  
+  2024-12 · 300 Turkish rows · 5.47 GB (Turkish subset) · Multiple-Choice Question Answering · CC BY-SA 4.0 · Open · [Files](https://huggingface.co/datasets/facebook/2M-Belebele/tree/main/data/lang=tur_Latn)
+- **[Belebele-Fleurs](https://huggingface.co/datasets/WueNLP/belebele-fleurs)** — Belebele reading comprehension aligned with FLEURS speech  
+  2024-11-25 · 706 Turkish rows · 2.02 GB (Turkish subset) · Multiple-Choice Question Answering · CC BY-SA 4.0 · Open · [Files](https://huggingface.co/datasets/WueNLP/belebele-fleurs/tree/main/data/tur_Latn)
+- **[Speech-MASSIVE](https://huggingface.co/datasets/FBK-MT/Speech-MASSIVE)** — Multilingual spoken language understanding, 12 languages  
+  2024-06 · 2,148 Turkish clips; 2.3 hours · 720.9 MB (Turkish subset) · Intent and Slot Classification; Automatic Speech Recognition · CC BY-NC-SA 4.0 · Open · [Files](https://huggingface.co/datasets/FBK-MT/Speech-MASSIVE/tree/main/tr-TR)
+- **[YODAS](https://huggingface.co/datasets/espnet/yodas)** — YouTube speech with manual and automatic captions  
+  2024-02 · 4,656 hours (588.7 manual-caption; 4,067.7 automatic-caption) · 443.4 GB (Turkish subset) · Automatic Speech Recognition · CC BY 3.0 · Open · [Files](https://huggingface.co/datasets/espnet/yodas/tree/main)
 - **[AUDIO Human Voice Pronunciations - Turkish](https://catalog.elra.info/en-us/repository/browse/ELRA-S0490_21/)** — Turkish word and phrase pronunciation audio  
   2023 · 6,491 Turkish pronunciation entries · Pronunciation Lexicon · ELRA VAR · Paid
+- **[FLEURS](https://huggingface.co/datasets/google/fleurs)** — Multilingual read-speech benchmark covering 102 languages  
+  2022-03 · 3,607 clips; 12.0 hours · 2.13 GB (Turkish subset) · Automatic Speech Recognition · Open · [Files](https://huggingface.co/datasets/google/fleurs/tree/main/data/tr_tr)
+- **[Multilingual Spoken Words Corpus (MSWC)](https://huggingface.co/datasets/MLCommons/ml_spoken_words)** — Forced-aligned Common Voice keyword clips, 50 languages  
+  2021-12-14 · 75,097 keyword clips; 29 hours · 1.27 GB (Turkish subset) · Keyword Search · CC BY 4.0 · Open · [Files](https://huggingface.co/datasets/MLCommons/ml_spoken_words/tree/main)
 - **[MediaSpeech Turkish v1.1 (SLR108)](https://www.openslr.org/108/)** — YouTube media speech segments, manually transcribed  
   2021 · 10 hours of Turkish media speech · 618 MB · Automatic Speech Recognition · CC BY 4.0 · Open · [Files](https://www.openslr.org/resources/108/TR.tgz)
+- **[TurEV-DB (Turkish Emotion-Voice Database)](https://github.com/Xeonen/TurEV-DB)** — Emotional Turkish word recordings in four emotions  
+  2020-08 · 1,735 recordings; 82 words; 4 emotions · ~ 265.7 MB (GitHub repo) · Speech / Audio · Open
 - **[CoVoST 2](https://github.com/facebookresearch/covost)** — Multilingual speech-to-text translation corpus  
   2020-07 · 12,365 Turkish-to-English translations · 281 KB (tr-en translations) · Language Resource / Modeling · CC0 1.0 · Open · [Files](https://dl.fbaipublicfiles.com/covost/covost_v2.tr_en.tsv.tar.gz)
 - **[GlobalPhone Multilingual Model Package](https://catalog.elra.info/en-us/repository/browse/ELRA-S0399/)** — Multilingual acoustic modeling speech data  
@@ -502,6 +576,8 @@ Each entry reads **name** — description, then `release date · scale · size �
 
 ## Vision, OCR & Multimodal
 
+- **[Turkish OCR Noise Corpus, version 2](https://huggingface.co/datasets/sfidan42/turkish-ocr-noise-corpus-v2)** — Rendered Turkish question-answer pages with synthetic OCR noise  
+  2026-09-27 · 5,198 pages; 31,188 images · 1.45 GB · OCR · Open · [Files](https://huggingface.co/datasets/sfidan42/turkish-ocr-noise-corpus-v2/tree/main)
 - **[Akis-Ottoman-Dataset (HF OttomanNLP)](https://huggingface.co/datasets/OttomanNLP/Akis-Ottoman-Dataset)** — Ottoman document line images with transcriptions  
   2026-08 · 8,036 line images · 583.0 MB · Ottoman Turkish Handwriting Recognition · Apache-2.0 · Open · [Files](https://huggingface.co/datasets/OttomanNLP/Akis-Ottoman-Dataset/tree/main)
 - **[CHURRO Ottoman Turkish Subset (HF OttomanNLP)](https://huggingface.co/datasets/OttomanNLP/CHURRO-Ottoman-Turkish-Subset)** — Historical Ottoman documents from CHURRO-DS  
@@ -510,6 +586,8 @@ Each entry reads **name** — description, then `release date · scale · size �
   2026-07 · 3,654 line images · 566.1 MB · Ottoman Turkish Handwriting Recognition · CC BY-NC-SA 4.0 · Open · [Files](https://huggingface.co/datasets/OttomanNLP/OpenITI-MAKHZAN-Ottoman-Lines/tree/main)
 - **[Osmanlıca Ekmek ve Nişasta Kitabı](https://huggingface.co/datasets/dijitaltarimkutuphanesi/OsmanlicaEkmekveNisastaKitabi)** — Ottoman-script book on bread-making, 1915  
   2026-07 · 16 page images · 3.5 MB · OCR · CC BY 4.0 · Open · [Files](https://huggingface.co/datasets/dijitaltarimkutuphanesi/OsmanlicaEkmekveNisastaKitabi/tree/main)
+- **[TR-DocVQA-Synth](https://huggingface.co/datasets/Ethosoft/TR-DocVQA-Synth)** — Synthetic Turkish invoices, contracts and offers with questions  
+  2026-06 · 15,000 document images; 235,000 question-answer pairs · 5.15 GB · Vision-Language · CC BY 4.0 · Open · [Files](https://huggingface.co/datasets/Ethosoft/TR-DocVQA-Synth/tree/main)
 - **[TUBITAK Science Olympiad Dataset](https://huggingface.co/datasets/ytu-ce-cosmos/tubitak-science-olympiad-tr)** — Science Olympiad multiple-choice and open questions  
   2026-03 · 2,698 Turkish rows · 528.9 MB · Multimodal Benchmarking · CC BY 4.0 · Open · [Files](https://huggingface.co/datasets/ytu-ce-cosmos/tubitak-science-olympiad-tr/tree/main)
 - **[Turkish Visual Reasoning Dataset](https://huggingface.co/datasets/Berkesule/Turkish-Visual-Reasoning-Dataset)** — Translated visual reasoning sets plus BİLSEM questions  
@@ -536,6 +614,8 @@ Each entry reads **name** — description, then `release date · scale · size �
   2025-03 · 500 Turkish rows · 134.8 MB · Vision-Language · Apache-2.0 · Open · [Files](https://huggingface.co/datasets/CohereLabs/m-WildVision/tree/main)
 - **[Turkish-medical-visual-question-answering-LLaVa-dataset](https://huggingface.co/datasets/nezahatkorkmaz/Turkish-medical-visual-question-answering-LLaVa-dataset)** — Turkish-translated radiology visual question-answering pairs  
   2025-03 · 314 images; 3,515 Turkish QA pairs · 17.9 MB · Vision-Language · MIT · Open · [Files](https://huggingface.co/datasets/nezahatkorkmaz/Turkish-medical-visual-question-answering-LLaVa-dataset/tree/main)
+- **[MVL-SIB](https://huggingface.co/datasets/WueNLP/mvl-sib)** — Image-sentence topical matching benchmark, 205 languages  
+  2025-01 · 1,004 Turkish sentences · 203.7 MB (all languages) · Multimodal Benchmarking · Open · [Files](https://huggingface.co/datasets/WueNLP/mvl-sib/tree/main/data)
 - **[pisc-tr](https://huggingface.co/datasets/berhaan/pisc-tr)** — Translated LLaVA-CoT PISC social-relationship visual QA  
   2024-12 · 948 rows · 146.8 MB · Vision-Language · Apache-2.0 · Open · [Files](https://huggingface.co/datasets/berhaan/pisc-tr/tree/main)
 - **[bilim_teknik_mini_colpali](https://huggingface.co/datasets/muhammetfatihaktug/bilim_teknik_mini_colpali)** — Science-magazine page images with model-generated Turkish retrieval queries  
@@ -580,6 +660,16 @@ Each entry reads **name** — description, then `release date · scale · size �
   2023-06 · 893,884 rows · 10.4 GB · Vision-Language · CC BY-NC 4.0 · Open · [Files](https://huggingface.co/datasets/visheratin/laion-coco-nllb/tree/main)
 - **[laion2B-multi-turkish-subset](https://huggingface.co/datasets/mcemilg/laion2B-multi-turkish-subset)** — Image-text pairs from LAION-5B  
   2022-11 · 34,638,627 Turkish rows · 4.7 GB · Vision-Language · CC BY 4.0 · Open · [Files](https://huggingface.co/datasets/mcemilg/laion2B-multi-turkish-subset/tree/main)
+- **[Crossmodal-3600 (XM3600)](https://google.github.io/crossmodal-3600/)** — Human captions for 3,600 images in 36 languages  
+  2022-10-10 · 3,600 images; 7,233 Turkish captions · 333.1 MB (all languages) · Vision-Language · CC BY 4.0 · Open
+- **[MaRVL](https://marvl-challenge.github.io/)** — Culturally grounded visual reasoning in five languages  
+  2021-09 · 1,180 Turkish statements · 2.47 GB (all languages) · Visual Reasoning · Open · [Dataverse](https://dataverse.scholarsportal.info/dataset.xhtml?persistentId=doi:10.5683/SP3/42VZ4P)
+- **[Cross-lingual Test Dataset XTD10](https://github.com/adobe-research/Cross-lingual-Test-Dataset-XTD10)** — Crowdsourced multilingual MSCOCO test captions, 1,000 images  
+  2020-12-10 · 1,000 Turkish captions · 71.8 KB (Turkish subset) · Vision-Language · Adobe Research License · Open · [Turkish captions](https://github.com/adobe-research/Cross-lingual-Test-Dataset-XTD10/blob/main/XTD10/test_1kcaptions_tr.txt)
+- **[MSVD-Turkish](https://hucvl.github.io/MSVD-Turkish/)** — Reviewed machine translations of MSVD video captions  
+  2020-12 · 1,970 videos; 77,592 Turkish captions · 26.0 MB (compressed archive) · Vision-Language · Open · [Captions](https://hucvl.github.io/MSVD-Turkish/en_tr.lc.nopunc.tsv.zip)
+- **[T-H-E Dataset](https://github.com/bartosgaye/thedataset)** — Handwritten Turkish, Hungarian and English character images  
+  2020-02 · 20,000 Turkish special-character images · 39.7 MB (Turkish subset) · OCR · Open
 - **[AUTSL](https://cvml.ankara.edu.tr/datasets/)**  
   2020 · 36,302 videos; 226 signs; 43 signers · Isolated Sign Language Recognition · Research use only · Registration Required · [Files](https://chalearnlap.cvc.uab.es/dataset/40/description/)
 - **[BosphorusSign22k](https://ogulcanozdemir.github.io/bosphorussign22k/)**  
