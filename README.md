@@ -8,7 +8,7 @@ Paid, gated and registration-gated datasets are listed alongside open ones, with
 
 **325 datasets** — 241 text/NLP · 32 speech · 52 vision/multimodal
 
-Last reviewed August 2026 · [searchable version](https://bilalabic.github.io/awesome-turkish-datasets/) with filters by category, task and access
+Last reviewed November 2026 · [searchable version](https://bilalabic.github.io/awesome-turkish-datasets/) with filters by category, task and access
 
 ## Contents
 
@@ -693,7 +693,7 @@ For a multilingual dataset the Turkish portion is given wherever it could be iso
 
 **A fact that could not be verified from an authoritative source is simply absent.** Nothing here is estimated or inferred, so a missing licence means the licence could not be established — not that the dataset has none.
 
-Two conventions are worth knowing. A licence is recorded only when it covers the data itself: where a repository's licence turned out to cover its loader code or its documentation rather than the dataset, it was left off. And for a dataset whose canonical source is a Hugging Face repository, the date is when it was published there, which can be later than an original release elsewhere.
+Two conventions are worth knowing. A licence is recorded only when it covers the data itself: where a repository's licence turned out to cover its loader code or its documentation rather than the dataset, it was left off. And the date is the earliest verifiable public release of the data: for a dataset first published on Hugging Face, that is when it was published there.
 
 ## Contributing
 

@@ -223,11 +223,15 @@ Datasets of social media posts may be listed with the license stated by their pu
 
 `Released` refers to the earliest verifiable public release of the dataset.
 
+For a dataset first published on Hugging Face, this is the date its repository was created. The 2022-03-02 creation date that Hugging Face shows for datasets migrated to the Hub is not a release date.
+
 Repository commit dates should not automatically be treated as dataset release dates.
 
 When a release date cannot be verified reliably, it should remain unspecified.
 
 ## Dataset Versions
+
+An entry's release date is the release of its first version. Its links, size, and scale describe the latest version and are updated when a new version appears.
 
 Official dataset versions may be listed separately when they represent meaningful releases.
 
