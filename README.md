@@ -1,7 +1,7 @@
 <!-- Generated from datasets.json by scripts/build.mjs. Edit datasets.json (and scripts/readme.tmpl.md for prose), then run: node scripts/build.mjs -->
 # Awesome Turkish Datasets
 
-[![Datasets](https://img.shields.io/badge/datasets-325-555)](https://bilalabic.github.io/awesome-turkish-datasets/) [![Catalog licence](https://img.shields.io/badge/catalog_licence-CC_BY_4.0-555)](LICENSE)
+[![Datasets](https://img.shields.io/badge/datasets-326-555)](https://bilalabic.github.io/awesome-turkish-datasets/) [![Catalog licence](https://img.shields.io/badge/catalog_licence-CC_BY_4.0-555)](LICENSE)
 
 A curated, verified catalog of datasets for Turkish across language, speech, vision, and multimodal AI: text corpora, LLM instruction and benchmark sets, speech recordings, OCR and vision-language data.
 
@@ -11,13 +11,13 @@ Turkish datasets are scattered across dataset cards, university pages, shared-ta
 
 Paid, gated and registration-gated datasets are listed alongside open ones, with their conditions stated. What is left out: releases whose Turkish portion cannot be separated from the other languages, resources that turn out to be a model, a tool or a paper rather than data, and datasets with no obtainable copy anywhere. [METHODOLOGY.md](METHODOLOGY.md) has the full rules.
 
-**325 datasets** — 241 text/NLP · 32 speech · 52 vision/multimodal
+**326 datasets** — 242 text/NLP · 32 speech · 52 vision/multimodal
 
 Last reviewed November 2026 · [searchable version](https://bilalabic.github.io/awesome-turkish-datasets/) with filters by category, task and access
 
 ## Contents
 
-- [Text, NLP & LLM](#text-nlp--llm) (241)
+- [Text, NLP & LLM](#text-nlp--llm) (242)
 - [Speech & Audio](#speech--audio) (32)
 - [Vision, OCR & Multimodal](#vision-ocr--multimodal) (52)
 
@@ -25,6 +25,8 @@ Each entry reads **name** — description, then `release date · scale · size �
 
 ## Text, NLP & LLM
 
+- **[TurkPhish v2](https://huggingface.co/datasets/OsmanCan/turkphish-v2)** — Synthetic Turkish phishing and legitimate e-mails, leakage-audited  
+  2026-11-18 · 2,653 e-mails · 2.2 MB · Text Classification; Phishing Detection · CC BY 4.0 · Open · [Files](https://huggingface.co/datasets/OsmanCan/turkphish-v2/tree/main)
 - **[LoReHLT Turkish Representative Language Pack](https://catalog.ldc.upenn.edu/LDC2026T10)** — Monolingual and parallel Turkish text with audio  
   2026-10-15 · ~422M Turkish words; ~25 hours of audio · Machine Translation; Named Entity Recognition · LDC User Agreement for Non-Members · Paid
 - **[Guardrail-TR](https://huggingface.co/datasets/ytu-ce-cosmos/guardrail-tr)** — Translated and adapted prompt-safety classification data  

@@ -4548,5 +4548,19 @@
   "task": "OCR",
   "license": "",
   "access": "Open"
+ },
+ {
+  "released": "2026-11-18",
+  "dataset": "TurkPhish v2",
+  "category": "Text, NLP & LLM",
+  "description": "Synthetic Turkish phishing and legitimate e-mails, leakage-audited",
+  "sourceUrl": "https://huggingface.co/datasets/OsmanCan/turkphish-v2",
+  "downloadLabel": "Files",
+  "downloadUrl": "https://huggingface.co/datasets/OsmanCan/turkphish-v2/tree/main",
+  "size": "2.2 MB",
+  "scale": "2,653 e-mails",
+  "task": "Text Classification; Phishing Detection",
+  "license": "CC BY 4.0",
+  "access": "Open"
  }
 ]
